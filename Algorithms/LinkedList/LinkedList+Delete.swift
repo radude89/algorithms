@@ -8,18 +8,18 @@
 import Foundation
 
 protocol LinkedListDeletable {
-    func deleteNode<T: Equatable>(data: T)
+    func deleteNode<U: Equatable>(data: U)
     func delete()
     func delete(at index: Int)
 }
 
 extension LinkedList: LinkedListDeletable {
-    func deleteNode<T: Equatable>(data: T) {
+    func deleteNode<U: Equatable>(data: U) {
         guard head != nil else {
             return
         }
         
-        guard head?.data as? T != data else {
+        guard head?.data as? U != data else {
             head = head?.next
             return
         }
@@ -29,7 +29,7 @@ extension LinkedList: LinkedListDeletable {
         while current?.next != nil {
             var nextNode = current?.next
             
-            if nextNode?.data as? T == data {
+            if nextNode?.data as? U == data {
                 current?.next = nextNode?.next
                 nextNode = nil
                 break

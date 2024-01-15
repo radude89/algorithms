@@ -10,12 +10,12 @@ import Foundation
 protocol LinkedListInsertable {
     associatedtype T
     
-    func insertAfter(node: LinkedList<T>.Node<T>, data: T)
+    func insertAfter(node: LinkedList<T>.Node, data: T)
     func append(data: T)
 }
 
 extension LinkedList: LinkedListInsertable {
-    func insertAfter(node: Node<T>, data: T) {
+    func insertAfter(node: Node, data: T) {
         let nodeToBeInserted = Node(data)
         guard head != nil else {
             head = nodeToBeInserted

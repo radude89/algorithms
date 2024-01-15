@@ -8,15 +8,15 @@
 import Foundation
 
 final class StackList<T> {
-    var top: Node<T>?
+    var top: Node?
     
-    init(top: Node<T>? = nil) {
+    init(top: Node? = nil) {
         self.top = top
     }
 }
 
 extension StackList {
-    final class Node<T> {
+    final class Node {
         let data: T
         var link: Node?
         

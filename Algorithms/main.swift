@@ -30,7 +30,7 @@ func sumList(list: LinkedList<Int>, anotherList: LinkedList<Int>) -> LinkedList<
     var anotherListNode = anotherList.head
     var carry = false
     let sumList = LinkedList<Int>()
-    var currentSumListNode: LinkedList<Int>.Node<Int>?
+    var currentSumListNode: LinkedList<Int>.Node?
     
     while currentListNode != nil || anotherListNode != nil {
         let listData = currentListNode?.data ?? 0
@@ -44,7 +44,7 @@ func sumList(list: LinkedList<Int>, anotherList: LinkedList<Int>) -> LinkedList<
             carry = false
         }
         
-        let sumNode = LinkedList<Int>.Node<Int>(sumNodes)
+        let sumNode = LinkedList<Int>.Node(sumNodes)
         
         if sumList.head == nil {
             sumList.head = sumNode
@@ -59,22 +59,22 @@ func sumList(list: LinkedList<Int>, anotherList: LinkedList<Int>) -> LinkedList<
     }
     
     if carry {
-        currentSumListNode?.next = LinkedList<Int>.Node<Int>(1)
+        currentSumListNode?.next = LinkedList<Int>.Node(1)
     }
     
     return sumList
 }
 
 let firstList = LinkedList<Int>()
-firstList.head = LinkedList<Int>.Node<Int>(9)
-firstList.head?.next = LinkedList<Int>.Node<Int>(9)
-firstList.head?.next?.next = LinkedList<Int>.Node<Int>(9)
+firstList.head = LinkedList<Int>.Node(9)
+firstList.head?.next = LinkedList<Int>.Node(9)
+firstList.head?.next?.next = LinkedList<Int>.Node(9)
 
 let secondList = LinkedList<Int>()
-secondList.head = LinkedList<Int>.Node<Int>(9)
-secondList.head?.next = LinkedList<Int>.Node<Int>(9)
-secondList.head?.next?.next = LinkedList<Int>.Node<Int>(9)
-secondList.head?.next?.next?.next = LinkedList<Int>.Node<Int>(1)
+secondList.head = LinkedList<Int>.Node(9)
+secondList.head?.next = LinkedList<Int>.Node(9)
+secondList.head?.next?.next = LinkedList<Int>.Node(9)
+secondList.head?.next?.next?.next = LinkedList<Int>.Node(1)
 
 let result = sumList(list: firstList, anotherList: secondList)
 print(result)

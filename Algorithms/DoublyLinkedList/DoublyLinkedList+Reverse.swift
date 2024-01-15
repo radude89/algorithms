@@ -18,7 +18,7 @@ extension DoublyLinkedList: DoublyLinkedListReversable {
         }
         
         var currentNode = head
-        var updatedNode: Node<T>?
+        var updatedNode: Node?
         
         while currentNode != nil {
             updatedNode = currentNode?.prev

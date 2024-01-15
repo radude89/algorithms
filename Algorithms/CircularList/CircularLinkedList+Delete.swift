@@ -12,7 +12,7 @@ protocol CircularLinkedListDeletable {
     
     func deleteFirst()
     func deleteLast()
-    func deleteNode(after node: CircularLinkedList<T>.Node<T>)
+    func deleteNode(after node: CircularLinkedList<T>.Node)
 }
 
 extension CircularLinkedList: CircularLinkedListDeletable {
@@ -51,7 +51,7 @@ extension CircularLinkedList: CircularLinkedListDeletable {
         }
     }
     
-    func deleteNode(after node: Node<T>) {
+    func deleteNode(after node: Node) {
         guard last != nil else {
             return
         }

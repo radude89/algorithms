@@ -10,10 +10,10 @@ import Foundation
 extension LinkedList: Playground {
     static func executeOperations() {
         let list = LinkedList<Int>()
-        list.head = LinkedList<Int>.Node<Int>(1)
+        list.head = LinkedList<Int>.Node(1)
 
-        let second = LinkedList<Int>.Node<Int>(2)
-        let third = LinkedList<Int>.Node<Int>(3)
+        let second = LinkedList<Int>.Node(2)
+        let third = LinkedList<Int>.Node(3)
 
         list.head?.next = second
         second.next = third

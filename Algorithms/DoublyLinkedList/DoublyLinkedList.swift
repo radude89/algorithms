@@ -9,16 +9,16 @@ import Foundation
 
 final class DoublyLinkedList<T> {
     
-    var head: Node<T>?
+    var head: Node?
     
-    init(head: Node<T>? = nil) {
+    init(head: Node? = nil) {
         self.head = head
     }
     
 }
 
 extension DoublyLinkedList {
-    final class Node<T> {
+    final class Node {
         let data: T
         var next: Node?
         var prev: Node?

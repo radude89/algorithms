@@ -12,7 +12,7 @@ protocol CircularLinkedListInsertable {
     
     func append(_ data: T)
     func insertAtStart(_ data: T)
-    func insertAfter(node: CircularLinkedList<T>.Node<T>, data: T)
+    func insertAfter(node: CircularLinkedList<T>.Node, data: T)
 }
 
 extension CircularLinkedList: CircularLinkedListInsertable {
@@ -45,7 +45,7 @@ extension CircularLinkedList: CircularLinkedListInsertable {
         last?.next = node
     }
     
-    func insertAfter(node: CircularLinkedList<T>.Node<T>, data: T) {
+    func insertAfter(node: CircularLinkedList<T>.Node, data: T) {
         guard last != nil else {
             insertFirstNode(data)
             return

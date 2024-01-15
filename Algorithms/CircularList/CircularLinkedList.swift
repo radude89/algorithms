@@ -9,16 +9,16 @@ import Foundation
 
 final class CircularLinkedList<T> {
     
-    var last: Node<T>?
+    var last: Node?
     
-    init(last: Node<T>? = nil) {
+    init(last: Node? = nil) {
         self.last = last
     }
     
 }
 
 extension CircularLinkedList {
-    final class Node<T> {
+    final class Node {
         let data: T
         var next: Node?
         

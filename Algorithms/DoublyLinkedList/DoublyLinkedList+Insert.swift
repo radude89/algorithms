@@ -11,8 +11,8 @@ protocol DoublyLinkedListInsertable {
     associatedtype T
     
     func insert(at position: UInt, data: T)
-    func insert(after node: DoublyLinkedList<T>.Node<T>, data: T)
-    func insert(before node: DoublyLinkedList<T>.Node<T>, data: T)
+    func insert(after node: DoublyLinkedList<T>.Node, data: T)
+    func insert(before node: DoublyLinkedList<T>.Node, data: T)
     func append(data: T)
 }
 
@@ -46,7 +46,7 @@ extension DoublyLinkedList: DoublyLinkedListInsertable {
         }
     }
     
-    func insert(after node: Node<T>, data: T) {
+    func insert(after node: Node, data: T) {
         guard head != nil else {
             return
         }
@@ -58,7 +58,7 @@ extension DoublyLinkedList: DoublyLinkedListInsertable {
         node.next = nodeToInsert
     }
     
-    func insert(before node: Node<T>, data: T) {
+    func insert(before node: Node, data: T) {
         guard head != nil else {
             head = Node(data)
             return

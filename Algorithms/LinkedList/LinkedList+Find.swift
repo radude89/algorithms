@@ -8,20 +8,20 @@
 import Foundation
 
 protocol LinkedListFindable {
-    associatedtype T
+    associatedtype U
     
-    var middleNodeValue: T? { get }
+    var middleNodeValue: U? { get }
     
-    func containsNode<T: Equatable>(havingValue value: T) -> Bool
-    func nodeValue(at position: Int) -> T?
+    func containsNode<U: Equatable>(havingValue value: U) -> Bool
+    func nodeValue(at position: Int) -> U?
 }
 
 extension LinkedList: LinkedListFindable {
-    func containsNode<T: Equatable>(havingValue value: T) -> Bool {
+    func containsNode<U: Equatable>(havingValue value: U) -> Bool {
         var currentNode = head
         
         while currentNode != nil {
-            if currentNode?.data as? T == value {
+            if currentNode?.data as? U == value {
                 return true
             }
             currentNode = currentNode?.next
