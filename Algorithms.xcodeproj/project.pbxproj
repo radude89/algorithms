@@ -29,6 +29,7 @@
 		F7632918279940CD002CD39C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7632917279940CD002CD39C /* Stack.swift */; };
 		F76B9F35278D615A00078F20 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F34278D615A00078F20 /* main.swift */; };
 		F790BD9A27B391E0002B842F /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790BD9927B391E0002B842F /* BinaryTree.swift */; };
+		F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */; };
 		F7B1FB632795462A00A31659 /* DoublyLinkedList+Reverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */; };
 		F7C5FF9427C367910002497C /* BinaryTree+Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5FF9327C367910002497C /* BinaryTree+Sum.swift */; };
 		F7DAB08627B6380000FE87B9 /* BinaryTree+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */; };
@@ -71,6 +72,7 @@
 		F76B9F31278D615A00078F20 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76B9F34278D615A00078F20 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F790BD9927B391E0002B842F /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Archive.swift"; sourceTree = "<group>"; };
 		F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Reverse.swift"; sourceTree = "<group>"; };
 		F7C5FF9327C367910002497C /* BinaryTree+Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Sum.swift"; sourceTree = "<group>"; };
 		F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Playground.swift"; sourceTree = "<group>"; };
@@ -103,11 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				F72DBF7A278EA2300017C0D6 /* LinkedList.swift */,
-				F74F625327913C0700DCDB09 /* LinkedList+Playground.swift */,
-				F72DBF7E278EA25E0017C0D6 /* LinkedList+Insert.swift */,
+				F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */,
 				F72DBF80278EA6AF0017C0D6 /* LinkedList+Delete.swift */,
-				F72DBF82278EB4860017C0D6 /* LinkedList+Length.swift */,
 				F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */,
+				F72DBF7E278EA25E0017C0D6 /* LinkedList+Insert.swift */,
+				F72DBF82278EB4860017C0D6 /* LinkedList+Length.swift */,
+				F74F625327913C0700DCDB09 /* LinkedList+Playground.swift */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				F790BD9A27B391E0002B842F /* BinaryTree.swift in Sources */,
 				F74F625A2791422900DCDB09 /* DoublyLinkedList+Playground.swift in Sources */,
 				F72DBF83278EB4860017C0D6 /* LinkedList+Length.swift in Sources */,
+				F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */,
 				F75C9ECC27B2356C00A8D21F /* Queue+Playground.swift in Sources */,
 				F74F625227913BAE00DCDB09 /* DoublyLinkedList.swift in Sources */,
 				F763291427993739002CD39C /* Stack+Playground.swift in Sources */,
