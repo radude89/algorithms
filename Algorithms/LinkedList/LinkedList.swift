@@ -46,3 +46,17 @@ extension LinkedList: CustomStringConvertible {
         return "[\(listOutput)] size: \(length)"
     }
 }
+
+extension LinkedList: ExpressibleByArrayLiteral {
+    convenience init(arrayLiteral elements: T...) {
+        var current: Node?
+
+        for element in elements.reversed() {
+            let newNode = Node(element)
+            newNode.next = current
+            current = newNode
+        }
+
+        self.init(head: current)
+    }
+}

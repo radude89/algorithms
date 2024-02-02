@@ -9,7 +9,6 @@ import Foundation
 
 protocol LinkedListFindable {
     associatedtype U
-    
     var middleNodeValue: U? { get }
     
     func containsNode<U: Equatable>(havingValue value: U) -> Bool
@@ -17,6 +16,29 @@ protocol LinkedListFindable {
 }
 
 extension LinkedList: LinkedListFindable {
+    func findNodeFromTheEnd(_ position: Int) -> Node? {
+        guard head != nil else {
+            return nil
+        }
+        
+        var firstPointer = head
+        var secondPointer = head
+        var currentIndex = 0
+        
+        while firstPointer?.next != nil {
+            firstPointer = firstPointer?.next
+            currentIndex += 1
+            if currentIndex > position - 1 {
+                secondPointer = secondPointer?.next
+            }
+        }
+        
+        if currentIndex >= position - 1 {
+            return secondPointer
+        }
+        return nil
+    }
+
     func containsNode<U: Equatable>(havingValue value: U) -> Bool {
         var currentNode = head
         

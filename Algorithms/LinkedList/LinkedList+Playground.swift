@@ -12,11 +12,20 @@ extension LinkedList: Playground {
     private typealias NodeInt = ListInt.Node
 
     static func executeOperations() {
-        runDeleteAtIndexPlayground()
+        runFindNodeFromTheEnd()
     }
 }
 
 private extension LinkedList {
+    // MARK: - Find
+    static func runFindNodeFromTheEnd() {
+        let nodeValueToFind = 5
+        let list: ListInt = [1, 2, 3, 4, 5]
+        print("Find node \(nodeValueToFind) from the end of 👉 \(list)")
+        let node = list.findNodeFromTheEnd(nodeValueToFind)
+        print("Node: \(node?.data ?? -1)")
+    }
+    
     // MARK: - Delete
     
     static func runDeleteAtIndexPlayground() {

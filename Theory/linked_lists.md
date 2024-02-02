@@ -243,3 +243,38 @@ func delete(at index: Int) {
 **Complexity for both:**
 - Time Complexity: O(n).
 - Auxiliary Space: O(1).
+
+## Finding the Nth node from the end
+
+- [More to read about the algorithm](https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/?ref=lbp).
+
+**Code**
+
+```swift
+func findNodeFromTheEnd(_ position: Int) -> Node? {
+    guard head != nil else {
+        return nil
+    }
+
+    var firstPointer = head
+    var secondPointer = head
+    var currentIndex = 0
+
+    while firstPointer?.next != nil {
+        firstPointer = firstPointer?.next
+        currentIndex += 1
+        if currentIndex > position - 1 {
+            secondPointer = secondPointer?.next
+        }
+    }
+
+    if currentIndex >= position - 1 {
+        return secondPointer
+    }
+    return nil
+}
+```
+
+**Complexity:**
+- Time and Space Complexity: O(n).
+- Auxiliary Space: O(1).
