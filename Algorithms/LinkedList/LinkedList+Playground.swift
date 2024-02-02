@@ -12,12 +12,44 @@ extension LinkedList: Playground {
     private typealias NodeInt = ListInt.Node
 
     static func executeOperations() {
-        runInsertAtEndPlayground()
+        runDeleteAtIndexPlayground()
     }
 }
 
-// MARK: - Playgrounds
 private extension LinkedList {
+    // MARK: - Delete
+    
+    static func runDeleteAtIndexPlayground() {
+        let list = ListInt()
+        let anotherNode = NodeInt(3)
+        let node = NodeInt(2, next: anotherNode)
+        list.head = NodeInt(1, next: node)
+        print("Before 👉 \(list)")
+        list.delete(at: 1)
+        print("After 👉 \(list)")
+    }
+    
+    static func runDeleteNodeAtEndPlayground() {
+        let list = ListInt()
+        let anotherNode = NodeInt(3)
+        let node = NodeInt(2, next: anotherNode)
+        list.head = NodeInt(1, next: node)
+        print("Before 👉 \(list)")
+        list.deleteNodeAtEnd()
+        print("After 👉 \(list)")
+    }
+
+    static func runDeleteNodeAtBeginningPlayground() {
+        let list = ListInt()
+        let node = NodeInt(2)
+        list.head = NodeInt(1, next: node)
+        print("Before 👉 \(list)")
+        list.deleteNodeAtBeginning()
+        print("After 👉 \(list)")
+    }
+    
+    // MARK: - Insert
+
     static func runInsertAtEndPlayground() {
         let list = ListInt()
         let node = NodeInt(2)

@@ -52,7 +52,7 @@ extension LinkedList {
 
         print("New list: \(list)")
 
-        list.delete(at: 1)
+        list.deleteOld(at: 1)
 
         print("List after deleting at index: \(list)")
 
@@ -77,5 +77,61 @@ extension LinkedList {
 
         let middle = list.middleNodeValue!
         print("For the list \(list), the middle is: \(middle)")
+    }
+}
+
+// MARK: - Delete old examples
+extension LinkedList {
+    func deleteNode<U: Equatable>(data: U) {
+        guard head != nil else {
+            return
+        }
+        
+        guard head?.data as? U != data else {
+            head = head?.next
+            return
+        }
+        
+        var current = head
+        
+        while current?.next != nil {
+            var nextNode = current?.next
+            
+            if nextNode?.data as? U == data {
+                current?.next = nextNode?.next
+                nextNode = nil
+                break
+            }
+            
+            current = nextNode
+        }
+    }
+    
+    func delete() {
+        head = nil
+    }
+    
+    func deleteOld(at index: Int) {
+        if head == nil {
+            return
+        }
+        
+        if index == 0 {
+            head = head?.next
+            return
+        }
+        
+        var currentNode = head
+        var currentIndex = 0
+        
+        while currentNode != nil && currentIndex < index {
+            if currentIndex + 1 == index {
+                var nextNode = currentNode?.next
+                currentNode?.next = nextNode?.next
+                nextNode = nil
+            }
+            currentIndex += 1
+            currentNode = currentNode?.next
+        }
     }
 }

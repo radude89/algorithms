@@ -117,3 +117,129 @@ func insertNodeAtEnd(data: T) {
 **Complexity:**
 - Time Complexity: O(n).
 - Auxiliary Space: O(1).
+
+## Deleting a node at the front
+
+**Code**
+
+```swift
+func deleteNodeAtBeginning() {
+    guard head != nil else {
+        return
+    }
+
+    guard head?.next != nil else {
+        head = nil
+        return
+    }
+
+    let newHead = head?.next
+    head = newHead
+}
+```
+
+**Complexity:**
+- Time Complexity: O(1).
+- Auxiliary Space: O(1).
+
+## Deleting a node at the end
+
+**Code**
+
+```swift
+func deleteNodeAtEnd() {
+    guard head != nil else {
+        return
+    }
+
+    guard head?.next != nil else {
+        head = nil
+        return
+    }
+
+    var current = head
+    while current?.next != nil {
+        let nextNode = current?.next
+        if nextNode?.next == nil {
+            current?.next = nil
+            break
+        }
+        current = nextNode
+    }
+}
+```
+
+**Complexity:**
+- Time Complexity: O(n).
+- Auxiliary Space: O(1).
+
+## Deleting a node at a given index
+
+**Code**
+
+<details>
+  <summary>v1</summary>
+
+```swift
+func delete(at position: Int) {
+    guard head != nil else {
+        return
+    }
+
+    if position == 0 {
+        let newHead = head?.next
+        head = newHead
+        return
+    }
+
+    var currentIndex = 0
+    var currentNode = head
+    while currentNode?.next != nil {
+        let nextNode = currentNode?.next
+        currentIndex += 1
+        if position == currentIndex {
+            let nextNextNode = nextNode?.next
+            currentNode?.next = nextNextNode
+            break
+        }
+        currentNode = nextNode
+    }
+}
+```
+
+</details>
+
+<details>
+  <summary>v2</summary>
+
+```swift
+func delete(at index: Int) {
+    if head == nil {
+        return
+    }
+
+    if index == 0 {
+        head = head?.next
+        return
+    }
+
+    var currentNode = head
+    var currentIndex = 0
+
+    while currentNode != nil && currentIndex < index {
+        if currentIndex + 1 == index {
+            var nextNode = currentNode?.next
+            currentNode?.next = nextNode?.next
+            nextNode = nil
+        }
+        currentIndex += 1
+        currentNode = currentNode?.next
+    }
+}
+```
+
+</details>
+
+**Complexity for both:**
+- Time Complexity: O(n).
+- Auxiliary Space: O(1).
