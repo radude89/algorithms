@@ -8,20 +8,53 @@
 import Foundation
 
 extension DoublyLinkedList: Playground {
+    private typealias ListInt = DoublyLinkedList<Int>
+    private typealias NodeInt = ListInt.Node
+
     static func executeOperations() {
-        let list = DoublyLinkedList<Int>()
-        list.insert(at: 0, data: 1)
-        list.insert(at: 0, data: 10)
-        list.insert(at: 0, data: 8)
-        list.insert(at: 1, data: 7)
-        list.insert(after: list.head!, data: 5)
-        list.insert(before: list.head!, data: 4)
-        list.append(data: 32)
+        runInsertAtEndPlayground()
+    }
+}
 
-        print("List \(list)")
-
-        list.reverse()
-
-        print("Reversed List \(list)")
+private extension DoublyLinkedList {
+    static func runInsertAtFrontPlayground() {
+        let list = ListInt()
+        print("Before 👉 \(list)")
+        list.insertAtFront(data: 1)
+        print("After 👉 \(list)")
+    }
+    
+    static func runInsertAfterPlayground() {
+        let head = NodeInt(1)
+        let list = ListInt(head: head)
+        
+        let node = NodeInt(2)
+        head.next = node
+        node.prev = head
+        node.next = nil
+        print("Before 👉 \(list)")
+        list.insert(after: head, data: 3)
+        print("After 👉 \(list)")
+    }
+    
+    static func runInsertBeforePlayground() {
+        let head = NodeInt(1)
+        let list = ListInt(head: head)
+        
+        let node = NodeInt(2)
+        head.next = node
+        node.prev = head
+        node.next = nil
+        print("Before 👉 \(list)")
+        list.insert(before: node, data: 3)
+        print("After 👉 \(list)")
+    }
+    
+    static func runInsertAtEndPlayground() {
+        let head = NodeInt(1)
+        let list = ListInt()
+        list.insert(after: head, data: 2)
+        list.insertAtEnd(data: 3)
+        print("Before 👉 \(list)")
     }
 }

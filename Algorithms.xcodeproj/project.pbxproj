@@ -34,6 +34,7 @@
 		F7C5FF9427C367910002497C /* BinaryTree+Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5FF9327C367910002497C /* BinaryTree+Sum.swift */; };
 		F7DAB08627B6380000FE87B9 /* BinaryTree+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */; };
 		F7E4788E278FE9BB008F5603 /* LinkedList+Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */; };
+		F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +78,7 @@
 		F7C5FF9327C367910002497C /* BinaryTree+Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Sum.swift"; sourceTree = "<group>"; };
 		F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Playground.swift"; sourceTree = "<group>"; };
 		F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Find.swift"; sourceTree = "<group>"; };
+		F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Archive.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F74F625127913BAE00DCDB09 /* DoublyLinkedList.swift */,
+				F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */,
 				F74F62592791422900DCDB09 /* DoublyLinkedList+Playground.swift */,
 				F74F62572791413C00DCDB09 /* DoublyLinkedList+Insert.swift */,
 				F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */,
@@ -266,6 +269,7 @@
 				F75C9ECC27B2356C00A8D21F /* Queue+Playground.swift in Sources */,
 				F74F625227913BAE00DCDB09 /* DoublyLinkedList.swift in Sources */,
 				F763291427993739002CD39C /* Stack+Playground.swift in Sources */,
+				F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */,
 				F72DBF7B278EA2300017C0D6 /* LinkedList.swift in Sources */,
 				F76B9F35278D615A00078F20 /* main.swift in Sources */,
 				F71C28A42797E13500F4D6EA /* CircularLinkedList.swift in Sources */,

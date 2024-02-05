@@ -10,6 +10,7 @@ import Foundation
 protocol DoublyLinkedListInsertable {
     associatedtype T
     
+    func insertAtFront(data: T)
     func insert(at position: UInt, data: T)
     func insert(after node: DoublyLinkedList<T>.Node, data: T)
     func insert(before node: DoublyLinkedList<T>.Node, data: T)
@@ -46,6 +47,32 @@ extension DoublyLinkedList: DoublyLinkedListInsertable {
         }
     }
     
+    func insertAtFront(data: T) {
+        let node = Node(data)
+        node.next = head
+        node.prev = nil
+        head?.prev = node
+        head = node
+    }
+    
+    func insertAtEnd(data: T) {
+        guard head != nil else {
+            let node = Node(data)
+            head = node
+            return
+        }
+        
+        var current = head
+        while current?.next != nil {
+            current = current?.next
+        }
+        
+        let node = Node(data)
+        node.next = nil
+        node.prev = current
+        current?.next = node
+    }
+    
     func insert(after node: Node, data: T) {
         guard head != nil else {
             return
@@ -59,8 +86,7 @@ extension DoublyLinkedList: DoublyLinkedListInsertable {
     }
     
     func insert(before node: Node, data: T) {
-        guard head != nil else {
-            head = Node(data)
+        if head == nil && node !== head {
             return
         }
         
@@ -76,19 +102,6 @@ extension DoublyLinkedList: DoublyLinkedListInsertable {
     }
     
     func append(data: T) {
-        if head == nil {
-            head = Node(data)
-            return
-        }
-        
-        var lastNode = head
-        
-        while lastNode?.next != nil {
-            lastNode = lastNode?.next
-        }
-        
-        let nodeToInsert = Node(data)
-        lastNode?.next = nodeToInsert
-        nodeToInsert.prev = lastNode
+        insertAtEnd(data: data)
     }
 }
