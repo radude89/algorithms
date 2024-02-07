@@ -397,3 +397,122 @@ func insertAtEnd(data: T) {
 **Complexity:**
 - Time Complexity: O(n).
 - Auxiliary Space: O(1).
+
+## Algorithms for circular linked lists
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/CircularLinkeList.png" />
+
+The circular linked list is a linked list where all nodes are connected to form a circle. In a circular linked list, the first node and the last node are connected to each other which forms a circle. There is no NULL at the end.
+
+There are generally two types of circular linked lists:
+
+1. **Circular singly linked list**: In a circular Singly linked list, the last node of the list contains a pointer to the first node of the list. We traverse the circular singly linked list until we reach the same node where we started. The circular singly linked list has no beginning or end. No null value is present in the next part of any of the nodes.
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220817185024/CircularSinglyLinkedList-660x172.png" />
+
+2. **Circular Doubly linked list**: Circular Doubly Linked List has properties of both doubly linked list and circular linked list in which two consecutive elements are linked or connected by the previous and next pointer and the last node points to the first node by the next pointer and also the first node points to the last node by the previous pointer.
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220817185057/Circulardoublylinkedlist-660x155.png" />
+
+### Inserting a node at the beginning
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220818092431/CircularSinglyLinkedlist4.png" />
+
+**Steps**
+- Create a node, say T.
+- Make T -> next = last -> next.
+- last -> next = T.
+
+**Code**
+
+```swift
+func insertAtBeginning(data: T) {
+    guard last != nil else {
+        let newNode = Node(data)
+        last = newNode
+        newNode.next = last
+        return
+    }
+
+    let newNode = Node(data)
+    newNode.next = last?.next
+    last?.next = newNode
+}
+```
+
+**Complexity**
+- Time complexity: O(1).
+- Auxiliary Space: O(1).
+
+### Inserting a node at the end
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/CircularSinglyLinkedlist-7.png" />
+
+**Steps**
+- Create a node, say T
+- Make T -> next = last -> next
+- last -> next = T
+- last = T
+
+**Code**
+
+```swift
+func insertAtEnd(data: T) {
+    let node = Node(data)
+    guard last != nil else {
+        last = node
+        node.next = last
+        return
+    }
+
+    node.next = last?.next
+    last?.next = node
+    last = node
+}
+```
+
+**Complexity**
+- Time complexity: O(1).
+- Auxiliary Space: O(1).
+
+### Inserting between nodes
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/CircularSinglyLinkedList9.png" />
+
+**Steps**
+- Create a node, say T.
+- Search for the node after which T needs to be inserted, say that node is P.
+- Make T -> next = P -> next;
+- P -> next = T.
+
+**Complexity**
+- Time complexity: O(N).
+- Auxiliary Space: O(1).
+
+**Code**
+
+```swift
+func insertAfter(node: Node, data: T) {
+    guard last != nil else {
+        return
+    }
+
+    let newNode = Node(data)
+    if node === last {
+        newNode.next = last?.next
+        last?.next = newNode
+        last = newNode
+        return
+    }
+
+    var current = last?.next
+    while current !== last {
+        if current === node {
+            newNode.next = current?.next
+            current?.next = newNode
+            break
+        }
+        current = current?.next
+    }
+}
+```

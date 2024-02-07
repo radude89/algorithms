@@ -14,5 +14,5 @@ runListsExamples()
 // MARK: - Lists
 
 private func runListsExamples() {
-    DoublyLinkedList<Int>.executeOperations()
+    CircularLinkedList<Int>.executeOperations()
 }
