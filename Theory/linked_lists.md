@@ -398,7 +398,7 @@ func insertAtEnd(data: T) {
 - Time Complexity: O(n).
 - Auxiliary Space: O(1).
 
-## Algorithms for circular linked lists
+## Circular linked lists
 
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/CircularLinkeList.png" />
 
@@ -413,6 +413,8 @@ There are generally two types of circular linked lists:
 2. **Circular Doubly linked list**: Circular Doubly Linked List has properties of both doubly linked list and circular linked list in which two consecutive elements are linked or connected by the previous and next pointer and the last node points to the first node by the next pointer and also the first node points to the last node by the previous pointer.
 
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220817185057/Circulardoublylinkedlist-660x155.png" />
+
+## Algorithms for circular singly linked lists
 
 ### Inserting a node at the beginning
 
@@ -516,3 +518,96 @@ func insertAfter(node: Node, data: T) {
     }
 }
 ```
+
+## Algorithms for circular doubly linked lists
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220830114920/doubly-660x177.jpg" />
+
+**Applications of Circular Doubly Linked List**
+
+- Implementation of Circular Data Structures: Circular doubly linked lists are extremely helpful in the construction of circular data structures like circular queues and circular buffers, which are both circular in nature.
+- Implementing Undo-Redo Operations: Text editors and other software programs can use circular doubly linked lists to implement undo-redo operations.
+- Music Player Playlist: Playlists in music players are frequently implemented using circular doubly linked lists. Each song is kept as a node in the list in this scenario, and the list can be circled to play the songs in the order they are listed.
+- Cache Memory Management: To maintain track of the most recently used cache blocks, circular doubly linked lists are employed in cache memory management.
+
+[Source here](https://www.geeksforgeeks.org/introduction-to-circular-doubly-linked-list/).
+
+### Insert at beginning
+
+**Code**
+
+```swift
+func insertAtBeginning(_ data: T) {
+    let newNode = Node(data)
+    guard head != nil else {
+        newNode.next = newNode
+        newNode.prev = newNode
+        head = newNode
+        return
+    }
+
+    newNode.next = head
+    newNode.prev = head?.prev
+    head?.prev?.next = newNode
+    head?.prev = newNode
+    head = newNode
+}
+```
+
+**Complexity**
+- Time complexity: O(1).
+- Space complexity: O(1).
+
+### Insert at end
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220830121544/2-660x355.png" />
+
+**Code**
+
+```swift
+func append(_ data: T) {
+    let newNode = Node(data)
+    guard head != nil else {
+        newNode.next = newNode
+        newNode.prev = newNode
+        head = newNode
+        return
+    }
+
+    newNode.next = head
+    newNode.prev = head?.prev
+    head?.prev?.next = newNode
+    head?.prev = newNode
+}
+```
+
+**Complexity**
+- Time complexity: O(1).
+- Space complexity: O(1).
+
+### Deletion
+
+**Code**
+
+```swift
+func delete(node: CircularDoublyLinkedList<T>.Node) {
+    guard head != nil else {
+        return
+    }
+
+    if head === node && head?.next === head {
+        head = nil
+        return
+    }
+
+    node.prev?.next = node.next
+    node.next?.prev = node.prev
+    if node === head {
+        head = head?.next
+    }
+}
+```
+
+**Complexity**
+- Time complexity: O(1).
+- Space complexity: O(1).
