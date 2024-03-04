@@ -9,10 +9,4 @@ import Foundation
 
 // MARK: - main
 
-runListsExamples()
-
-// MARK: - Lists
-
-private func runListsExamples() {
-    CircularDoublyLinkedList<Int>.executeOperations()
-}
+StackList<Int>.executeOperations()

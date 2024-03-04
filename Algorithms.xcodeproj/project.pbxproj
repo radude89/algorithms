@@ -37,6 +37,7 @@
 		F7CE00F52B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F42B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift */; };
 		F7CE00F72B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */; };
 		F7CE00F92B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */; };
+		F7D263932B96224300B8A1AB /* Stack+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D263922B96224300B8A1AB /* Stack+Archive.swift */; };
 		F7DAB08627B6380000FE87B9 /* BinaryTree+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */; };
 		F7E4788E278FE9BB008F5603 /* LinkedList+Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */; };
 		F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */; };
@@ -86,6 +87,7 @@
 		F7CE00F42B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Playground.swift"; sourceTree = "<group>"; };
 		F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Insert.swift"; sourceTree = "<group>"; };
 		F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Delete.swift"; sourceTree = "<group>"; };
+		F7D263922B96224300B8A1AB /* Stack+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stack+Archive.swift"; sourceTree = "<group>"; };
 		F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Playground.swift"; sourceTree = "<group>"; };
 		F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Find.swift"; sourceTree = "<group>"; };
 		F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Archive.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				F7632917279940CD002CD39C /* Stack.swift */,
+				F7D263922B96224300B8A1AB /* Stack+Archive.swift */,
 				F763291327993739002CD39C /* Stack+Playground.swift */,
 				F763291127993587002CD39C /* StackList.swift */,
 				F7632915279937CB002CD39C /* StackList+PushPop.swift */,
@@ -291,6 +294,7 @@
 				F72DBF7B278EA2300017C0D6 /* LinkedList.swift in Sources */,
 				F76B9F35278D615A00078F20 /* main.swift in Sources */,
 				F71C28A42797E13500F4D6EA /* CircularLinkedList.swift in Sources */,
+				F7D263932B96224300B8A1AB /* Stack+Archive.swift in Sources */,
 				F74F625627913C3300DCDB09 /* Playground.swift in Sources */,
 				F763291227993587002CD39C /* StackList.swift in Sources */,
 				F7CE00F92B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift in Sources */,
