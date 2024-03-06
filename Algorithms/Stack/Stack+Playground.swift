@@ -13,8 +13,8 @@ extension StackList: Playground {
         stack.push(data: 1)
         stack.push(data: 2)
         stack.push(data: 3)
-        stack.popN()
-        stack.popN()
+        stack.pop()
+        stack.pop()
         print(stack)
     }
 }

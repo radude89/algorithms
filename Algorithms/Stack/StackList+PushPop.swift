@@ -27,6 +27,7 @@ extension StackList: Stack {
         top = node
     }
     
+    @discardableResult
     func pop() -> T? {
         guard top != nil else {
             return nil
