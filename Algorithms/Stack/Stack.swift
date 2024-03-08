@@ -13,6 +13,6 @@ protocol Stack {
     var peek: T? { get }
     var isEmpty: Bool { get }
     
-    func push(data: T)
+    func push(_ data: T)
     func pop() -> T?
 }

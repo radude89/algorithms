@@ -74,7 +74,7 @@ extension StackList {
                 let op1 = stack.pop() ?? ""
                 let op2 = stack.pop() ?? ""
                 let newElement = "(\(op2)\(String(char))\(op1))"
-                stack.push(data: newElement)
+                stack.push(newElement)
             }
         }
         
@@ -91,7 +91,7 @@ extension StackList {
                 let op1 = stack.pop() ?? ""
                 let op2 = stack.pop() ?? ""
                 let newElement = "\(String(char))\(op2)\(op1)"
-                stack.push(data: newElement)
+                stack.push(newElement)
             }
         }
         
@@ -108,7 +108,7 @@ extension StackList {
                 let op1 = stack.pop() ?? ""
                 let op2 = stack.pop() ?? ""
                 let newElement = "\(op1)\(op2)\(String(char))"
-                stack.push(data: newElement)
+                stack.push(newElement)
             }
         }
         
@@ -125,7 +125,7 @@ extension StackList {
                 let op1 = stack.pop() ?? ""
                 let op2 = stack.pop() ?? ""
                 let newElement = "(\(op1)\(String(char))\(op2))"
-                stack.push(data: newElement)
+                stack.push(newElement)
             }
         }
         

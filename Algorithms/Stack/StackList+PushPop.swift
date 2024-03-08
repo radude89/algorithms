@@ -16,7 +16,7 @@ extension StackList: Stack {
         top == nil
     }
     
-    func push(data: T) {
+    func push(_ data: T) {
         guard top != nil else {
             top = Node(data)
             return
@@ -41,6 +41,6 @@ extension StackList: Stack {
 
 extension Stack where T == String {
     func push(data: Character) {
-        push(data: String(data))
+        push(String(data))
     }
 }
