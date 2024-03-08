@@ -13,36 +13,51 @@ extension StackList: Playground {
     }
 
     private static func infixToPostfix() {
-        let input = "A+B-C*D/E^F+G*H-I".stringByRemovingSpecialCharacters
+        let input = "(A+(B+C)*D)/E^F".stringByRemovingSpecialCharacters
         let outputStack: StackList<Character> = .init()
-        let operatorStack: StackList<Operator> = .init()
+        let operatorStack: StackList<Character> = .init()
         
         for char in input {
             if char.isLetter { // found operand
                 outputStack.push(char)
-            } else if let currentOperator = Operator(rawValue: String(char)) {
-                // found operator
-                if operatorStack.isEmpty {
-                    operatorStack.push(currentOperator)
+            } else if let currentBracket = Bracket(char) {
+                if currentBracket.isOpen {
+                    operatorStack.push(char)
                 } else {
-                    var topOperator = operatorStack.peek!
+                    // Pop all characters until we reach the open bracket
+                    while !operatorStack.isEmpty {
+                        let current = operatorStack.pop()
+                        let bracket = Bracket(current)
+                        if let bracket, bracket.isOpposite(to: currentBracket) {
+                            break
+                        } else if bracket == nil, let current {
+                            outputStack.push(current)
+                        }
+                    }
+                }
+            } else if let currentOperator = Operator(char) {
+                let topOperatorFromStackIsBracket = Bracket(operatorStack.peek) != nil
+                if operatorStack.isEmpty || topOperatorFromStackIsBracket {
+                    operatorStack.push(Character(currentOperator.rawValue))
+                } else {
+                    // found operator
+                    guard var topOperator = Operator(operatorStack.peek) else { return }
                     if currentOperator.precedencePriority <= topOperator.precedencePriority {
                         while currentOperator.precedencePriority <= topOperator.precedencePriority && !operatorStack.isEmpty {
                             operatorStack.pop()
                             outputStack.push(Character(topOperator.rawValue))
                             if !operatorStack.isEmpty {
-                                topOperator = operatorStack.peek!
+                                topOperator = Operator(operatorStack.peek)!
                             }
                         }
                     }
-                    operatorStack.push(currentOperator)
+                    operatorStack.push(Character(currentOperator.rawValue))
                 }
             }
         }
         while !operatorStack.isEmpty {
-            let currentOperator = operatorStack.pop()
-            if let operatorAsString = currentOperator?.rawValue {
-                outputStack.push(Character(operatorAsString))
+            if let currentOperator = operatorStack.pop() {
+                outputStack.push(currentOperator)
             }
         }
         
@@ -58,7 +73,7 @@ extension StackList: Playground {
     
 }
 
-private extension StackList {
+extension StackList {
     enum Bracket: String {
         case openParanthesis = "("
         case closedParanthesis = ")"
@@ -66,6 +81,37 @@ private extension StackList {
         case closedBracket = "]"
         case openCurlyBrace = "{"
         case closedCurlyBrace = "}"
+        
+        init?(_ character: Character?) {
+            guard let character else { return nil }
+            self.init(rawValue: String(character))
+        }
+        
+        var isOpen: Bool {
+            return switch self {
+            case .openParanthesis, .openBracket, .openCurlyBrace:
+                true
+            case .closedParanthesis, .closedBracket, .closedCurlyBrace:
+                false
+            }
+        }
+        
+        func isOpposite(to bracket: Bracket) -> Bool {
+            return switch bracket {
+            case .openParanthesis:
+                self == .closedParanthesis
+            case .closedParanthesis:
+                self == .openParanthesis
+            case .openBracket:
+                self == .closedBracket
+            case .closedBracket:
+                self == .openBracket
+            case .openCurlyBrace:
+                self == .closedCurlyBrace
+            case .closedCurlyBrace:
+                self == .openCurlyBrace
+            }
+        }
     }
     
     enum Operator: String {
@@ -74,6 +120,11 @@ private extension StackList {
         case multiply = "*"
         case divide = "/"
         case power = "^"
+        
+        init?(_ character: Character?) {
+            guard let character else { return nil }
+            self.init(rawValue: String(character))
+        }
         
         var precedencePriority: Int {
             return switch self {
