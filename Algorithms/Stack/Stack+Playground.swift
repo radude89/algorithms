@@ -13,7 +13,7 @@ extension StackList: Playground {
     }
 
     private static func infixToPostfix() {
-        let input = "(A+(B+C)*D)/E^F".stringByRemovingSpecialCharacters
+        let input = "a+b*(c^d-e)^(f+g*h)-i".stringByRemovingSpecialCharacters
         let outputStack: StackList<Character> = .init()
         let operatorStack: StackList<Character> = .init()
         
@@ -47,7 +47,12 @@ extension StackList: Playground {
                             operatorStack.pop()
                             outputStack.push(Character(topOperator.rawValue))
                             if !operatorStack.isEmpty {
-                                topOperator = Operator(operatorStack.peek)!
+                                let topOperatorFromStackIsBracket = Bracket(operatorStack.peek) != nil
+                                if topOperatorFromStackIsBracket {
+                                    break
+                                } else {
+                                    topOperator = Operator(operatorStack.peek)!
+                                }
                             }
                         }
                     }

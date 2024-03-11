@@ -138,5 +138,16 @@ The pop operation is implemented by decrementing the index of the top element an
 
 _Source [here](https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/)._
 
-TODO next: https://www.geeksforgeeks.org/stack-data-structure/?ref=shm
-- Standard easy problems on stack
+## Infix to Postfix
+
+- Nice converter [here](https://www.web4college.com/converters/infix-to-postfix-prefix.php).
+
+
+**Infix expression**: The expression of the form “a operator b” (a + b) i.e., when an operator is in-between every pair of operands.<br />
+**Postfix expression**: The expression of the form “a b operator” (ab+) i.e., When every pair of operands is followed by an operator.
+
+The repeated scanning makes it very inefficient. Infix expressions are easily readable and solvable by humans whereas the computer cannot differentiate the operators and parenthesis easily so, it is better to convert the expression to postfix(or prefix) form before evaluation.
+
+Whenever we get an operand, add it to the postfix expression and if we get an operator or parenthesis add it to the stack by maintaining their precedence.
+
+[Source here](https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/)
