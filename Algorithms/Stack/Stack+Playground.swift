@@ -20,44 +20,21 @@ extension StackList: Playground {
         for char in input {
             if char.isLetter { // found operand
                 outputStack.push(char)
-            } else if let currentBracket = Bracket(char) {
-                if currentBracket.isOpen {
-                    operatorStack.push(char)
-                } else {
-                    // Pop all characters until we reach the open bracket
-                    while !operatorStack.isEmpty {
-                        let current = operatorStack.pop()
-                        let bracket = Bracket(current)
-                        if let bracket, bracket.isOpposite(to: currentBracket) {
-                            break
-                        } else if bracket == nil, let current {
-                            outputStack.push(current)
-                        }
-                    }
+            } else if char == "(" || operatorStack.isEmpty || operatorStack.peek == "(" {
+                operatorStack.push(char)
+            } else if char == ")" {
+                while let current = operatorStack.pop(), current != "(" {
+                    outputStack.push(current)
                 }
             } else if let currentOperator = Operator(char) {
-                let topOperatorFromStackIsBracket = Bracket(operatorStack.peek) != nil
-                if operatorStack.isEmpty || topOperatorFromStackIsBracket {
-                    operatorStack.push(Character(currentOperator.rawValue))
-                } else {
-                    // found operator
-                    guard var topOperator = Operator(operatorStack.peek) else { return }
-                    if currentOperator.precedencePriority <= topOperator.precedencePriority {
-                        while currentOperator.precedencePriority <= topOperator.precedencePriority && !operatorStack.isEmpty {
-                            operatorStack.pop()
-                            outputStack.push(Character(topOperator.rawValue))
-                            if !operatorStack.isEmpty {
-                                let topOperatorFromStackIsBracket = Bracket(operatorStack.peek) != nil
-                                if topOperatorFromStackIsBracket {
-                                    break
-                                } else {
-                                    topOperator = Operator(operatorStack.peek)!
-                                }
-                            }
-                        }
-                    }
-                    operatorStack.push(Character(currentOperator.rawValue))
+                while let topOperator = Operator(operatorStack.peek),
+                      currentOperator.precedencePriority <= topOperator.precedencePriority,
+                      !operatorStack.isEmpty,
+                      operatorStack.peek != "(" {
+                    outputStack.push(Character(topOperator.rawValue))
+                    operatorStack.pop()
                 }
+                operatorStack.push(Character(currentOperator.rawValue))
             }
         }
         while !operatorStack.isEmpty {
@@ -79,46 +56,6 @@ extension StackList: Playground {
 }
 
 extension StackList {
-    enum Bracket: String {
-        case openParanthesis = "("
-        case closedParanthesis = ")"
-        case openBracket = "["
-        case closedBracket = "]"
-        case openCurlyBrace = "{"
-        case closedCurlyBrace = "}"
-        
-        init?(_ character: Character?) {
-            guard let character else { return nil }
-            self.init(rawValue: String(character))
-        }
-        
-        var isOpen: Bool {
-            return switch self {
-            case .openParanthesis, .openBracket, .openCurlyBrace:
-                true
-            case .closedParanthesis, .closedBracket, .closedCurlyBrace:
-                false
-            }
-        }
-        
-        func isOpposite(to bracket: Bracket) -> Bool {
-            return switch bracket {
-            case .openParanthesis:
-                self == .closedParanthesis
-            case .closedParanthesis:
-                self == .openParanthesis
-            case .openBracket:
-                self == .closedBracket
-            case .closedBracket:
-                self == .openBracket
-            case .openCurlyBrace:
-                self == .closedCurlyBrace
-            case .closedCurlyBrace:
-                self == .openCurlyBrace
-            }
-        }
-    }
-    
     enum Operator: String {
         case plus = "+"
         case minus = "-"

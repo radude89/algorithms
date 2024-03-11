@@ -151,3 +151,38 @@ The repeated scanning makes it very inefficient. Infix expressions are easily re
 Whenever we get an operand, add it to the postfix expression and if we get an operator or parenthesis add it to the stack by maintaining their precedence.
 
 [Source here](https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/)
+
+### Algorithm
+
+<details>
+  <summary>Code implementation</summary>
+
+```swift
+for char in input {
+    if char.isLetter {
+        outputStack.push(char)
+    } else if char == "(" || operatorStack.isEmpty || operatorStack.peek == "(" {
+        operatorStack.push(char)
+    } else if char == ")" {
+        while let current = operatorStack.pop(), current != "(" {
+            outputStack.push(current)
+        }
+    } else if let currentOperator = Operator(char) {
+        while let topOperator = Operator(operatorStack.peek),
+              currentOperator.precedencePriority <= topOperator.precedencePriority,
+              !operatorStack.isEmpty,
+              operatorStack.peek != "(" {
+            outputStack.push(Character(topOperator.rawValue))
+            operatorStack.pop()
+        }
+        operatorStack.push(Character(currentOperator.rawValue))
+    }
+}
+```
+
+</details>
+
+### Complexity
+
+- Time Complexity: O(N), where N is the size of the infix expression
+- Auxiliary Space: O(N), where N is the size of the infix expression
