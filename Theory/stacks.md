@@ -138,21 +138,39 @@ The pop operation is implemented by decrementing the index of the top element an
 
 _Source [here](https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/)._
 
-## Infix to Postfix
+## Infix/Postfix/Prefix
 
-- Nice converter [here](https://www.web4college.com/converters/infix-to-postfix-prefix.php).
+**Infix expression**: The expression of the form “a operator b” (a + b) i.e., when an operator is in-between every pair of operands.
 
-
-**Infix expression**: The expression of the form “a operator b” (a + b) i.e., when an operator is in-between every pair of operands.<br />
 **Postfix expression**: The expression of the form “a b operator” (ab+) i.e., When every pair of operands is followed by an operator.
+
+**Prefix expression**: An expression is called the prefix expression if the operator appears in the expression before the operands. Simply of the form (operator operand1 operand2).
+
+**Why?**
 
 The repeated scanning makes it very inefficient. Infix expressions are easily readable and solvable by humans whereas the computer cannot differentiate the operators and parenthesis easily so, it is better to convert the expression to postfix(or prefix) form before evaluation.
 
 Whenever we get an operand, add it to the postfix expression and if we get an operator or parenthesis add it to the stack by maintaining their precedence.
 
-[Source here](https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/)
+### Infix to Postfix
 
-### Algorithm
+- [Source here](https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/)
+
+#### Algorithm
+
+1. Scan input string from left to right character by character.
+2. If the character is an operand, put it into output stack.
+3. If the character is an operator and operator's stack is empty, push operator into operators' stack.
+4. If the operator's stack is not empty, there may be following possibilites.
+    1. If the precedence of scanned operator is greater than the top most operator of operator's stack, push this operator into operand's stack.
+    2. If the precedence of scanned operator is less than or equal to the top most operator of operator's stack, pop the operators from operand's stack until we find a low precedence operator than the scanned character. Never pop out ( '(' ) or ( ')' ) whatever may be the precedence level of scanned character.
+    3. If the character is opening round bracket ( '(' ), push it into operator's stack.
+    4. If the character is closing round bracket ( ')' ), pop out operators from operator's stack untill we find an opening bracket ('(' ).
+    5. Now pop out all the remaining operators from the operator's stack and push into output stack.
+
+- [Source here](https://www.web4college.com/converters/infix-to-postfix-prefix.php#iToPos)
+
+#### Implementation
 
 <details>
   <summary>Code implementation</summary>
@@ -182,7 +200,94 @@ for char in input {
 
 </details>
 
-### Complexity
+#### Complexity
 
 - Time Complexity: O(N), where N is the size of the infix expression
 - Auxiliary Space: O(N), where N is the size of the infix expression
+
+### Prefix to Infix
+
+- [Source here](https://www.geeksforgeeks.org/prefix-infix-conversion/?ref=lbp)
+- [Source #2 here](https://www.web4college.com/converters/postfix-prefix-to-infix.php)
+
+#### Algorithm
+
+- Read the Prefix expression in reverse order (from right to left).
+- If the symbol is an operand, then push it onto the Stack.
+- If the symbol is an operator, then pop two operands from the Stack:
+    - Create a string by concatenating the two operands and the operator between them.
+    - string = (operand1 + operator + operand2)
+    - And push the resultant string back to Stack
+- Repeat the above steps until the end of Prefix expression.
+- At the end stack will have only 1 string i.e. resultant string.
+
+#### Implementation
+
+<details>
+  <summary>Code implementation</summary>
+
+```swift
+let input = "*-A/BC*-/AKL+MN".stringByRemovingSpecialCharacters
+let reversed = input.reversed()
+let stack: StackList<String> = .init()
+for char in reversed {
+    if char.isLetter {
+        stack.push(String(char))
+    } else {
+        let operand1 = stack.pop() ?? ""
+        let operand2 = stack.pop() ?? ""
+        let result = "(\(operand1)\(char)\(operand2))"
+        stack.push(result)
+    }
+}
+// Prints ((A-(B/C))*(((A/K)-L)*(M+N)))
+print(stack.pop() ?? "")
+```
+
+</details>
+
+#### Complexity
+
+- Time Complexity: O(n)
+- Auxiliary Space: O(n)
+
+### Prefix to Postfix
+
+- [Source here](https://www.geeksforgeeks.org/prefix-postfix-conversion/?ref=lbp)
+- [Source #2 here](https://www.web4college.com/converters/postfix-to-prefix-to-postfix.php)
+- [Source #3 here](https://www.geeksforgeeks.org/prefix-to-postfix-converter-online/)
+
+#### Algorithm
+
+1. Read the Prefix expression in reverse order (from right to left)
+2. If the symbol is an operand, then push it onto the Stack
+3. If the symbol is an operator, then pop two operands from the Stack
+    1. Create a string by concatenating the two operands and the operator after them.
+    2. string = operand1 + operand2 + operator
+    3. And push the resultant string back to Stack
+4. Repeat the above steps until end of Prefix expression.
+
+#### Implementation
+
+<details>
+  <summary>Code implementation</summary>
+
+```swift
+for char in reversed {
+    if char.isLetter {
+        stack.push(String(char))
+    } else {
+        let operand1 = stack.pop() ?? ""
+        let operand2 = stack.pop() ?? ""
+        let result = "\(operand1)\(operand2)\(char)"
+        stack.push(result)
+    }
+}
+```
+
+</details>
+
+#### Complexity
+
+Time Complexity: O(N), as we are using a loop for traversing the expression.
+Auxiliary Space: O(N), as we are using stack for extra space.

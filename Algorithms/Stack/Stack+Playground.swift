@@ -9,10 +9,56 @@ import Foundation
 
 extension StackList: Playground {
     static func executeOperations() {
-        infixToPostfix()
+        prefixToPostfix()
     }
+}
 
-    private static func infixToPostfix() {
+// MARK: - Prefix to Postfix
+private extension StackList {
+    static func prefixToPostfix() {
+        let input = "*-A/BC-/AKL".stringByRemovingSpecialCharacters
+        let reversed = input.reversed()
+        let stack: StackList<String> = .init()
+        for char in reversed {
+            if char.isLetter {
+                stack.push(String(char))
+            } else {
+                let operand1 = stack.pop() ?? ""
+                let operand2 = stack.pop() ?? ""
+                let result = "\(operand1)\(operand2)\(char)"
+                stack.push(result)
+            }
+        }
+        print(stack.pop() ?? "")
+    }
+}
+
+// MARK: - Prefix to Infix
+private extension StackList {
+    static func prefixToInfix() {
+//        let input = "*+AB-CD".stringByRemovingSpecialCharacters
+//        let input = "*-A/BC-/AKL".stringByRemovingSpecialCharacters
+        let input = "*-A/BC*-/AKL+MN".stringByRemovingSpecialCharacters
+        let reversed = input.reversed()
+        let stack: StackList<String> = .init()
+        for char in reversed {
+            if char.isLetter {
+                stack.push(String(char))
+            } else {
+                let operand1 = stack.pop() ?? ""
+                let operand2 = stack.pop() ?? ""
+                let result = "(\(operand1)\(char)\(operand2))"
+                stack.push(result)
+            }
+        }
+        // Prints ((A-(B/C))*(((A/K)-L)*(M+N)))
+        print(stack.pop() ?? "")
+    }
+}
+
+// MARK: - Infix to Postfix
+private extension StackList {
+    static func infixToPostfix() {
         let input = "a+b*(c^d-e)^(f+g*h)-i".stringByRemovingSpecialCharacters
         let outputStack: StackList<Character> = .init()
         let operatorStack: StackList<Character> = .init()
@@ -55,43 +101,7 @@ extension StackList: Playground {
     
 }
 
-extension StackList {
-    enum Operator: String {
-        case plus = "+"
-        case minus = "-"
-        case multiply = "*"
-        case divide = "/"
-        case power = "^"
-        
-        init?(_ character: Character?) {
-            guard let character else { return nil }
-            self.init(rawValue: String(character))
-        }
-        
-        var precedencePriority: Int {
-            return switch self {
-            case .plus, .minus:
-                1
-            case .multiply, .divide:
-                2
-            case .power:
-                3
-            }
-        }
-        
-        var isLeftAssociativity: Bool {
-            return switch self {
-            case .power:
-                false
-            default:
-                true
-            }
-        }
-    }
-}
-
 // MARK: - Helpers
-
 private extension String {
     var stringByRemovingSpecialCharacters: String {
         let allowedCharacterSet = CharacterSet(
