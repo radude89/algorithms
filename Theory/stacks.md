@@ -26,7 +26,7 @@ _Source [here](https://www.geeksforgeeks.org/introduction-to-stack-data-structur
 
 1. Infix to Postfix/Prefix conversion.
 2. Expression Evaluation.
-3. Recurssion Stack.
+3. Recursion Stack.
 4. Memory Management.
 5. Balanced Parenthesis.
 6. Undo-Redo.
