@@ -405,3 +405,53 @@ static func postfixToInfix() {
 
 - Time Complexity: O(N) where N is the length of the string.
 - Auxiliary Space: O(N) where N is the stack size.
+
+### Infix to Prefix
+
+- [Source here](https://www.geeksforgeeks.org/convert-infix-prefix-notation/)
+- [Source #2 here](https://www.web4college.com/converters/infix-to-postfix-prefix.php)
+
+<details>
+  <summary>📸</summary>
+
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230324112657/infix-to-prefix.png" />
+
+</details>
+
+#### Algorithm
+
+1. Reverse the input string.
+2. Convert the reversed string into postfix expression.
+3. Reverse the postfix expression.
+
+#### Implementation
+
+<details>
+  <summary>Code implementation</summary>
+
+  ```swift
+  static func infixToPrefix() {
+      let input = "A+B*C/(E-F)".stringByRemovingSpecialCharacters
+      var result = ""
+      for char in input {
+          if char == "(" {
+              result.append(")")
+          } else if char == ")" {
+              result.append("(")
+          } else {
+              result.append(char)
+          }
+      }
+      let reversedInput = String(result.reversed())
+      let postfix = infixToPostfix(input: reversedInput)
+      let reversedPostfix = String(postfix.reversed())
+      print(reversedPostfix)
+  }
+  ```
+
+</details>
+
+#### Complexity
+
+- Time Complexity: O(N), where N is the size of the infix expression.
+- Auxiliary Space: O(N), where N is the size of the infix expression.

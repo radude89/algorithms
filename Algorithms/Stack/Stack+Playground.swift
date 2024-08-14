@@ -9,7 +9,7 @@ import Foundation
 
 extension StackList: Playground {
     static func executeOperations() {
-        postfixToInfix()
+        infixToPrefix()
     }
 }
 
@@ -95,8 +95,9 @@ private extension StackList {
 
 // MARK: - Infix to Postfix
 private extension StackList {
-    static func infixToPostfix() {
-        let input = "a+b*(c^d-e)^(f+g*h)-i".stringByRemovingSpecialCharacters
+    @discardableResult
+    static func infixToPostfix(input: String) -> String {
+//        let input = "a+b*(c^d-e)^(f+g*h)-i".stringByRemovingSpecialCharacters
         let outputStack: StackList<Character> = .init()
         let operatorStack: StackList<Character> = .init()
         
@@ -133,9 +134,26 @@ private extension StackList {
             }
         }
         
-        print(reversedStack)
+        return reversedStack.toString()
     }
     
+    static func infixToPrefix() {
+        let input = "A+B*C/(E-F)".stringByRemovingSpecialCharacters
+        var result = ""
+        for char in input {
+            if char == "(" {
+                result.append(")")
+            } else if char == ")" {
+                result.append("(")
+            } else {
+                result.append(char)
+            }
+        }
+        let reversedInput = String(result.reversed())
+        let postfix = infixToPostfix(input: reversedInput)
+        let reversedPostfix = String(postfix.reversed())
+        print(reversedPostfix)
+    }
 }
 
 // MARK: - Helpers

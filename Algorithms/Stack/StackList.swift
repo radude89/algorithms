@@ -43,4 +43,16 @@ extension StackList: CustomStringConvertible {
         
         return "[\(listOutput)]"
     }
+    
+    func toString() -> String {
+        var output = ""
+        var node = top
+        while node != nil {
+            if let data = node?.data {
+                output += "\(data)"
+            }
+            node = node?.link
+        }
+        return output
+    }
 }
