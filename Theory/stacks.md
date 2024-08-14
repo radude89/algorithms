@@ -156,6 +156,11 @@ Whenever we get an operand, add it to the postfix expression and if we get an op
 
 - [Source here](https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/)
 
+<details>
+  <summary>📸</summary>
+    <img src="https://2.bp.blogspot.com/-uHvlZSEKfkM/Vdd6U82_qqI/AAAAAAAAAOg/CvlpyyJfOjg/s1600/InToPostExample.jpg" />
+</details>
+
 #### Algorithm
 
 1. Scan input string from left to right character by character.
@@ -210,13 +215,18 @@ for char in input {
 - [Source here](https://www.geeksforgeeks.org/prefix-infix-conversion/?ref=lbp)
 - [Source #2 here](https://www.web4college.com/converters/postfix-prefix-to-infix.php)
 
+<details>
+  <summary>📸</summary>
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240730142029/Evaluate-the-prefix-expression-2.webp" />
+</details>
+
 #### Algorithm
 
 - Read the Prefix expression in reverse order (from right to left).
 - If the symbol is an operand, then push it onto the Stack.
 - If the symbol is an operator, then pop two operands from the Stack:
     - Create a string by concatenating the two operands and the operator between them.
-    - string = (operand1 + operator + operand2)
+    - `string = (operand1 + operator + operand2)`
     - And push the resultant string back to Stack
 - Repeat the above steps until the end of Prefix expression.
 - At the end stack will have only 1 string i.e. resultant string.
@@ -263,7 +273,7 @@ print(stack.pop() ?? "")
 2. If the symbol is an operand, then push it onto the Stack
 3. If the symbol is an operator, then pop two operands from the Stack
     1. Create a string by concatenating the two operands and the operator after them.
-    2. string = operand1 + operand2 + operator
+    2. `string = operand1 + operand2 + operator`
     3. And push the resultant string back to Stack
 4. Repeat the above steps until end of Prefix expression.
 
@@ -289,5 +299,43 @@ for char in reversed {
 
 #### Complexity
 
-Time Complexity: O(N), as we are using a loop for traversing the expression.
-Auxiliary Space: O(N), as we are using stack for extra space.
+- Time Complexity: O(N), as we are using a loop for traversing the expression.
+- Auxiliary Space: O(N), as we are using stack for extra space.
+
+### Postfix to Prefix
+
+- [Source here](https://www.geeksforgeeks.org/postfix-prefix-conversion/)
+- [Source #2 here](https://www.web4college.com/converters/postfix-to-prefix-to-postfix.php)
+
+<details>
+  <summary>📸</summary>
+
+  <img src="https://www.helpmestudybro.com/wp-content/uploads/2020/06/Postfix2Prefix-1-1024x875.jpg" />
+
+</details>
+
+#### Algorithm
+
+1. Read the Postfix expression from left to right.
+2. If the symbol is an operand, then push it onto the Stack.
+3. If the symbol is an operator, then pop two operands from the Stack.
+4. Create a string by concatenating the two operands and the operator before them.<br />
+`string = operator + operand2 + operand1`
+5. And push the resultant string back to Stack
+6. Repeat the above steps until end of Postfix expression.
+
+#### Implementation
+
+<details>
+  <summary>Code implementation</summary>
+
+```swift
+
+```
+
+</details>
+
+#### Complexity
+
+- Time Complexity: O(N).
+- Auxiliary Space: O(N) - we are using an empty stack as well as empty string to store the expression hence space taken is linear.

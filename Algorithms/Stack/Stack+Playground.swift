@@ -9,7 +9,26 @@ import Foundation
 
 extension StackList: Playground {
     static func executeOperations() {
-        prefixToPostfix()
+        postfixToPrefix()
+    }
+}
+
+// MARK: - Postfix to Prefix
+private extension StackList {
+    static func postfixToPrefix() {
+        let input = "ABC*DE-/+".stringByRemovingSpecialCharacters
+        let stack: StackList<String> = .init()
+        for char in input {
+            if char.isLetter {
+                stack.push(String(char))
+            } else {
+                let operand1 = stack.pop() ?? ""
+                let operand2 = stack.pop() ?? ""
+                let result = "\(char)\(operand2)\(operand1)"
+                stack.push(result)
+            }
+        }
+        print(stack.pop() ?? "")
     }
 }
 
@@ -51,7 +70,6 @@ private extension StackList {
                 stack.push(result)
             }
         }
-        // Prints ((A-(B/C))*(((A/K)-L)*(M+N)))
         print(stack.pop() ?? "")
     }
 }
