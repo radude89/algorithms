@@ -9,7 +9,26 @@ import Foundation
 
 extension StackList: Playground {
     static func executeOperations() {
-        postfixToPrefix()
+        postfixToInfix()
+    }
+}
+
+// MARK: - Postfix to Infix
+private extension StackList {
+    static func postfixToInfix() {
+        let input = "ABC++".stringByRemovingSpecialCharacters
+        let stack: StackList<String> = .init()
+        for char in input {
+            if char.isLetter {
+                stack.push(String(char))
+            } else {
+                let operand1 = stack.pop() ?? ""
+                let operand2 = stack.pop() ?? ""
+                let result = "(\(operand2)\(char)\(operand1))"
+                stack.push(result)
+            }
+        }
+        print(stack.pop() ?? "")
     }
 }
 

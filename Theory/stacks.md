@@ -330,7 +330,21 @@ for char in reversed {
   <summary>Code implementation</summary>
 
 ```swift
-
+static func postfixToPrefix() {
+    let input = "ABC*DE-/+".stringByRemovingSpecialCharacters
+    let stack: StackList<String> = .init()
+    for char in input {
+        if char.isLetter {
+            stack.push(String(char))
+        } else {
+            let operand1 = stack.pop() ?? ""
+            let operand2 = stack.pop() ?? ""
+            let result = "\(char)\(operand2)\(operand1)"
+            stack.push(result)
+        }
+    }
+    print(stack.pop() ?? "")
+}
 ```
 
 </details>
@@ -339,3 +353,55 @@ for char in reversed {
 
 - Time Complexity: O(N).
 - Auxiliary Space: O(N) - we are using an empty stack as well as empty string to store the expression hence space taken is linear.
+
+### Postfix to Infix
+
+- [Source here](https://www.geeksforgeeks.org/postfix-to-infix/)
+- [Source #2 here](https://www.web4college.com/converters/postfix-prefix-to-infix.php)
+
+<details>
+  <summary>📸</summary>
+
+  <img src="https://www.helpmestudybro.com/wp-content/uploads/2020/06/Postfix2Infix-1024x875.jpg" />
+
+</details>
+
+#### Algorithm
+
+1. Read the Postfix expression from left to right.
+2. If the symbol is an operand, then push it onto the Stack.
+3. If the symbol is an operator, then pop two operands from the Stack.
+4. Create a string by concatenating the two operands and the operator.<br />
+`string = operand2 + operator + operand1`
+5. And push the resultant string back to Stack
+6. Repeat the above steps until end of Postfix expression.
+
+#### Implementation
+
+<details>
+  <summary>Code implementation</summary>
+
+```swift
+static func postfixToInfix() {
+    let input = "ABC++".stringByRemovingSpecialCharacters
+    let stack: StackList<String> = .init()
+    for char in input {
+        if char.isLetter {
+            stack.push(String(char))
+        } else {
+            let operand1 = stack.pop() ?? ""
+            let operand2 = stack.pop() ?? ""
+            let result = "(\(operand2)\(char)\(operand1))"
+            stack.push(result)
+        }
+    }
+    print(stack.pop() ?? "")
+}
+```
+
+</details>
+
+#### Complexity
+
+- Time Complexity: O(N) where N is the length of the string.
+- Auxiliary Space: O(N) where N is the stack size.
