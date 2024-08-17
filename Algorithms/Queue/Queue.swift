@@ -21,4 +21,8 @@ struct Queue<T> {
     mutating func dequeue() -> T? {
         items.removeFirst()
     }
+    
+    var peek: T? {
+        items.first
+    }
 }
