@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-StackList<Int>.executeOperations()
+GenericTreeNode<String>.executeOperations()
