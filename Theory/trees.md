@@ -1,5 +1,8 @@
 # Trees
 
+_Source [here](https://www.geeksforgeeks.org/types-of-trees-in-data-structures/)_
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20230111154258/typoes1.png" />
+
 ## Generic Trees
 
 _Source [here](https://www.geeksforgeeks.org/generic-treesn-array-trees/?ref=outind)_
@@ -76,3 +79,127 @@ G
 - Space Complexity - O(n), where `n` is the height of the tree (the maximum depth of any node)
 
 For binary trees where the tree is balance the space complexity is O(log n).
+
+## Binary Trees
+
+Each node has only two children.
+
+Internal nodes = the nodes that are not leaves
+
+### Degenerate Binary Tree
+
+A degenerate binary tree, also known as a pathological binary tree, is a type of binary tree where each parent node has only one child. This means that the tree is essentially a linked list, with no node having two children.
+
+The height equals number of nodes. Complexity is O(n).
+
+The tree is highly unbalanced, as all nodes are aligned along a single path.
+
+<details>
+  <summary>Formulas</summary>
+
+```plaintext
+# 1. Height of the Tree (h):
+h = N - 1
+
+# 2. Number of Internal Nodes (I):
+I = N - 1
+
+# 3. Number of Leaf Nodes (L):
+L = 1
+
+# 4. Number of Nodes (N):
+N = h + 1
+
+# 5. Node Indexing (Array Representation):
+Parent(i) = i - 1  # for i > 0
+Child(i) = i + 1   # for i < N-1
+```
+
+</details>
+
+### Full Binary Tree
+
+A full binary tree is a binary tree with either zero or two child nodes for each node.
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221229135813/full.png" />
+
+<details>
+  <summary>Formulas</summary>
+
+```plaintext
+# Full Binary Tree Key Formulas
+
+# 1. Total Number of Nodes (N):
+N = 2L - 1  # in terms of leaves (L)
+N = 2I + 1  # in terms of internal nodes (I)
+
+# 2. Number of Leaves (L):
+L = I + 1  # in terms of internal nodes (I)
+L = 2^h    # in terms of height (h)
+
+# 3. Height of the Tree (h):
+h = log2(L)                          # in terms of leaves (L)
+h = log2((N + 1) / 2)                # in terms of total nodes (N)
+
+# 4. Number of Internal Nodes (I):
+I = L - 1        # in terms of leaves (L)
+I = (N - 1) / 2  # in terms of total nodes (N)
+
+# 5. Minimum and Maximum Height (h) Given N Nodes:
+h_min = log2((N + 1) / 2)  # minimum height
+h_max = N - 1              # maximum height (degenerate tree)
+
+# 6. Sum of Heights of All Nodes:
+Sum_of_heights = N * h - (2^h - 1)
+```
+
+</details>
+
+### Complete Binary Tree
+
+A complete binary tree is a binary tree in which all levels, except possibly the last, are completely filled, and all nodes are as far left as possible.
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220414154428/complete-200x132.jpg" />
+
+<details>
+  <summary>Formulas</summary>
+
+```plaintext
+# 1. Height of the Tree (h):
+h = ceil(log2(N))
+
+# 2. Maximum Number of Nodes at a Given Height (h):
+N = 2^h - 1
+
+# 3. Number of Nodes (N):
+2^(h-1) <= N < 2^h
+
+# 4. Number of Leaf Nodes (L):
+L ≈ N / 2
+
+# 5. Number of Internal Nodes (I):
+I = N - L
+
+# 6. Index of Parent and Children (for Array Representation):
+Parent = floor(i / 2)
+Left Child = 2 * i
+Right Child = 2 * i + 1
+```
+
+</details>
+
+### Perfect Binary Tree
+
+### Balanced Binary Tree
+
+### Binary Search Tree
+
+### AVL Tree
+
+### Red-Black Tree
+
+### B-Tree
+
+### B-Tree+
+
+### Segment Tree
