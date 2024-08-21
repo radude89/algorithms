@@ -80,6 +80,27 @@ G
 
 For binary trees where the tree is balance the space complexity is O(log n).
 
+### Traversals
+
+Given the N-ary tree:
+
+```
+      A
+   /  | \
+  B   C  D
+ / \  | \
+E  F  G  H
+```
+
+The orders for the different traversals would be:
+
+1. Pre-order Traversal:
+- Order: A B E F C G H D
+2. Post-order Traversal:
+- Order: E F B G H C D A
+3. Level-order Traversal:
+- Order: A B C D E F G H
+
 ## Binary Trees
 
 Each node has only two children.

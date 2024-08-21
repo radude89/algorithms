@@ -28,7 +28,6 @@
 		F7632916279937CB002CD39C /* StackList+PushPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7632915279937CB002CD39C /* StackList+PushPop.swift */; };
 		F7632918279940CD002CD39C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7632917279940CD002CD39C /* Stack.swift */; };
 		F76B9F35278D615A00078F20 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F34278D615A00078F20 /* main.swift */; };
-		F790BD9A27B391E0002B842F /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790BD9927B391E0002B842F /* BinaryTree.swift */; };
 		F798CD372B73E54A00467E28 /* CircularLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798CD362B73E54A00467E28 /* CircularLinkedList+Archive.swift */; };
 		F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */; };
 		F7B1FB632795462A00A31659 /* DoublyLinkedList+Reverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */; };
@@ -38,7 +37,6 @@
 		F7CE00F72B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */; };
 		F7CE00F92B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */; };
 		F7D263932B96224300B8A1AB /* Stack+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D263922B96224300B8A1AB /* Stack+Archive.swift */; };
-		F7DAB08627B6380000FE87B9 /* BinaryTree+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */; };
 		F7E4788E278FE9BB008F5603 /* LinkedList+Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */; };
 		F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */; };
 		F7FE9C712C7192E2008EA7EF /* GenericTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FE9C702C7192DF008EA7EF /* GenericTree.swift */; };
@@ -80,7 +78,6 @@
 		F7632917279940CD002CD39C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		F76B9F31278D615A00078F20 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76B9F34278D615A00078F20 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		F790BD9927B391E0002B842F /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		F798CD362B73E54A00467E28 /* CircularLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularLinkedList+Archive.swift"; sourceTree = "<group>"; };
 		F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Archive.swift"; sourceTree = "<group>"; };
 		F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Reverse.swift"; sourceTree = "<group>"; };
@@ -90,7 +87,6 @@
 		F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Insert.swift"; sourceTree = "<group>"; };
 		F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Delete.swift"; sourceTree = "<group>"; };
 		F7D263922B96224300B8A1AB /* Stack+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stack+Archive.swift"; sourceTree = "<group>"; };
-		F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryTree+Playground.swift"; sourceTree = "<group>"; };
 		F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Find.swift"; sourceTree = "<group>"; };
 		F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Archive.swift"; sourceTree = "<group>"; };
 		F7FE9C702C7192DF008EA7EF /* GenericTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTree.swift; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 			children = (
 				F76B9F34278D615A00078F20 /* main.swift */,
 				F74F625527913C3300DCDB09 /* Playground.swift */,
-				F790BD9827B38F92002B842F /* BinaryTree */,
 				F7FE9C752C7197FF008EA7EF /* GenericTree */,
 				F73EA6CF282130C9003CBD1E /* Strings */,
 				F75C9EC827B233E700A8D21F /* Queue */,
@@ -211,15 +206,6 @@
 				F72DBF84278EB5B20017C0D6 /* LinkedList */,
 			);
 			path = Algorithms;
-			sourceTree = "<group>";
-		};
-		F790BD9827B38F92002B842F /* BinaryTree */ = {
-			isa = PBXGroup;
-			children = (
-				F790BD9927B391E0002B842F /* BinaryTree.swift */,
-				F7DAB08527B6380000FE87B9 /* BinaryTree+Playground.swift */,
-			);
-			path = BinaryTree;
 			sourceTree = "<group>";
 		};
 		F7FE9C752C7197FF008EA7EF /* GenericTree */ = {
@@ -293,9 +279,7 @@
 				F75C9ECA27B233FB00A8D21F /* Queue.swift in Sources */,
 				F7CE00F32B75C38A008D893F /* CircularDoublyLinkedList.swift in Sources */,
 				F72DBF7F278EA25E0017C0D6 /* LinkedList+Insert.swift in Sources */,
-				F7DAB08627B6380000FE87B9 /* BinaryTree+Playground.swift in Sources */,
 				F7632916279937CB002CD39C /* StackList+PushPop.swift in Sources */,
-				F790BD9A27B391E0002B842F /* BinaryTree.swift in Sources */,
 				F74F625A2791422900DCDB09 /* DoublyLinkedList+Playground.swift in Sources */,
 				F72DBF83278EB4860017C0D6 /* LinkedList+Length.swift in Sources */,
 				F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */,
