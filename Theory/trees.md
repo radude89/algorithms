@@ -3,7 +3,7 @@
 _Source [here](https://www.geeksforgeeks.org/types-of-trees-in-data-structures/)_
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230111154258/typoes1.png" />
 
-## Generic Trees
+## Generic Trees (N-ary Trees)
 
 _Source [here](https://www.geeksforgeeks.org/generic-treesn-array-trees/?ref=outind)_
 
