@@ -101,6 +101,11 @@ The orders for the different traversals would be:
 3. Level-order Traversal:
 - Order: A B C D E F G H
 
+#### Resources
+
+- https://www.codecademy.com/article/tree-traversal
+- https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week08.html
+
 ## Binary Trees
 
 Each node has only two children.
