@@ -28,10 +28,42 @@ class GenericTreeNode<T> {
         }
     }
     
-    func traverse(level: Int = 0) {
-        let indentation = String(repeating: "  ", count: level)
-        print("\(indentation)\(data)")
-        firstChild?.traverse(level: level + 1)
-        nextSibling?.traverse(level: level)
+    func traversePreOrder() {
+        print(data)
+        firstChild?.traversePreOrder()
+        nextSibling?.traversePreOrder()
+    }
+    
+    func traversePostOrder() {
+        firstChild?.traversePostOrder()
+        nextSibling?.traversePostOrder()
+        print(data)
+    }
+    
+    func traverseByLevel() {
+        print(data)
+        var sibling = nextSibling
+        while sibling != nil {
+            print(sibling!.data)
+            sibling = sibling?.nextSibling
+        }
+        firstChild?.traverseByLevel()
+        nextSibling?.firstChild?.traverseByLevel()
+    }
+    
+    func traverseByLevelViaQueue() {
+        var queue = [self]
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+            print(current.data)
+            if let child = current.firstChild {
+                queue.append(child)
+                var sibling = child.nextSibling
+                while let next = sibling {
+                    queue.append(next)
+                    sibling = sibling?.nextSibling
+                }
+            }
+        }
     }
 }

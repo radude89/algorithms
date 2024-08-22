@@ -8,7 +8,6 @@
 extension GenericTreeNode: Playground {
     static func executeOperations() {
         typealias TreeNode = GenericTreeNode<String>
-        // Example Usage
         let root = TreeNode(data: "A")
 
         let nodeB = TreeNode(data: "B")
@@ -26,10 +25,11 @@ extension GenericTreeNode: Playground {
         nodeB.addChild(nodeF)
 
         let nodeG = TreeNode(data: "G")
+        let nodeH = TreeNode(data: "H")
 
         nodeC.addChild(nodeG)
+        nodeC.addChild(nodeH)
 
-        // Traverse and print the tree
-        root.traverse()
+        root.traverseByLevelViaQueue()
     }
 }
