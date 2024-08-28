@@ -1,9 +1,4 @@
-//
-//  GenericTree+Playground.swift
-//  Algorithms
-//
-//  Created by Radu Dan on 18.08.2024.
-//
+import Foundation
 
 extension GenericTreeNode: Playground {
     static func executeOperations() {

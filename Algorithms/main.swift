@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-GenericTreeNode<String>.executeOperations()
+BinaryTreeNode<Int>.executeOperations()

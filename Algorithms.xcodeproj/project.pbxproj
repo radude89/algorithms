@@ -3,45 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		F71C28A42797E13500F4D6EA /* CircularLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C28A32797E13500F4D6EA /* CircularLinkedList.swift */; };
-		F71C28A62797E73B00F4D6EA /* CircularLinkedList+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C28A52797E73B00F4D6EA /* CircularLinkedList+Playground.swift */; };
-		F71C28A82797E74F00F4D6EA /* CircularLinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C28A72797E74F00F4D6EA /* CircularLinkedList+Insert.swift */; };
-		F72DBF7B278EA2300017C0D6 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBF7A278EA2300017C0D6 /* LinkedList.swift */; };
-		F72DBF7F278EA25E0017C0D6 /* LinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBF7E278EA25E0017C0D6 /* LinkedList+Insert.swift */; };
-		F72DBF81278EA6AF0017C0D6 /* LinkedList+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBF80278EA6AF0017C0D6 /* LinkedList+Delete.swift */; };
-		F72DBF83278EB4860017C0D6 /* LinkedList+Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBF82278EB4860017C0D6 /* LinkedList+Length.swift */; };
-		F73EA6D1282130D3003CBD1E /* StringExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EA6D0282130D3003CBD1E /* StringExercises.swift */; };
-		F74F625227913BAE00DCDB09 /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F625127913BAE00DCDB09 /* DoublyLinkedList.swift */; };
-		F74F625427913C0700DCDB09 /* LinkedList+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F625327913C0700DCDB09 /* LinkedList+Playground.swift */; };
-		F74F625627913C3300DCDB09 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F625527913C3300DCDB09 /* Playground.swift */; };
-		F74F62582791413C00DCDB09 /* DoublyLinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F62572791413C00DCDB09 /* DoublyLinkedList+Insert.swift */; };
-		F74F625A2791422900DCDB09 /* DoublyLinkedList+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F62592791422900DCDB09 /* DoublyLinkedList+Playground.swift */; };
-		F75C9ECA27B233FB00A8D21F /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C9EC927B233FB00A8D21F /* Queue.swift */; };
-		F75C9ECC27B2356C00A8D21F /* Queue+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C9ECB27B2356C00A8D21F /* Queue+Playground.swift */; };
-		F763290D27992833002CD39C /* CircularLinkedList+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763290C27992833002CD39C /* CircularLinkedList+Delete.swift */; };
-		F763291227993587002CD39C /* StackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763291127993587002CD39C /* StackList.swift */; };
-		F763291427993739002CD39C /* Stack+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763291327993739002CD39C /* Stack+Playground.swift */; };
-		F7632916279937CB002CD39C /* StackList+PushPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7632915279937CB002CD39C /* StackList+PushPop.swift */; };
-		F7632918279940CD002CD39C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7632917279940CD002CD39C /* Stack.swift */; };
-		F76B9F35278D615A00078F20 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F34278D615A00078F20 /* main.swift */; };
-		F798CD372B73E54A00467E28 /* CircularLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798CD362B73E54A00467E28 /* CircularLinkedList+Archive.swift */; };
-		F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */; };
-		F7B1FB632795462A00A31659 /* DoublyLinkedList+Reverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */; };
-		F7C0AD462BA0D12A0002E79F /* StackList+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C0AD452BA0D12A0002E79F /* StackList+Operator.swift */; };
-		F7CE00F32B75C38A008D893F /* CircularDoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F22B75C38A008D893F /* CircularDoublyLinkedList.swift */; };
-		F7CE00F52B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F42B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift */; };
-		F7CE00F72B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */; };
-		F7CE00F92B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */; };
-		F7D263932B96224300B8A1AB /* Stack+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D263922B96224300B8A1AB /* Stack+Archive.swift */; };
-		F7E4788E278FE9BB008F5603 /* LinkedList+Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */; };
-		F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */; };
-		F7FE9C712C7192E2008EA7EF /* GenericTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FE9C702C7192DF008EA7EF /* GenericTree.swift */; };
-		F7FE9C732C7197E4008EA7EF /* GenericTree+Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FE9C722C7197DE008EA7EF /* GenericTree+Playground.swift */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F76B9F2F278D615A00078F20 /* CopyFiles */ = {
@@ -56,42 +19,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F71C28A32797E13500F4D6EA /* CircularLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLinkedList.swift; sourceTree = "<group>"; };
-		F71C28A52797E73B00F4D6EA /* CircularLinkedList+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularLinkedList+Playground.swift"; sourceTree = "<group>"; };
-		F71C28A72797E74F00F4D6EA /* CircularLinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularLinkedList+Insert.swift"; sourceTree = "<group>"; };
-		F72DBF7A278EA2300017C0D6 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
-		F72DBF7E278EA25E0017C0D6 /* LinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Insert.swift"; sourceTree = "<group>"; };
-		F72DBF80278EA6AF0017C0D6 /* LinkedList+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Delete.swift"; sourceTree = "<group>"; };
-		F72DBF82278EB4860017C0D6 /* LinkedList+Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Length.swift"; sourceTree = "<group>"; };
-		F73EA6D0282130D3003CBD1E /* StringExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExercises.swift; sourceTree = "<group>"; };
-		F74F625127913BAE00DCDB09 /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
-		F74F625327913C0700DCDB09 /* LinkedList+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Playground.swift"; sourceTree = "<group>"; };
-		F74F625527913C3300DCDB09 /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
-		F74F62572791413C00DCDB09 /* DoublyLinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Insert.swift"; sourceTree = "<group>"; };
-		F74F62592791422900DCDB09 /* DoublyLinkedList+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Playground.swift"; sourceTree = "<group>"; };
-		F75C9EC927B233FB00A8D21F /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		F75C9ECB27B2356C00A8D21F /* Queue+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queue+Playground.swift"; sourceTree = "<group>"; };
-		F763290C27992833002CD39C /* CircularLinkedList+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularLinkedList+Delete.swift"; sourceTree = "<group>"; };
-		F763291127993587002CD39C /* StackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackList.swift; sourceTree = "<group>"; };
-		F763291327993739002CD39C /* Stack+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stack+Playground.swift"; sourceTree = "<group>"; };
-		F7632915279937CB002CD39C /* StackList+PushPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackList+PushPop.swift"; sourceTree = "<group>"; };
-		F7632917279940CD002CD39C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		F76B9F31278D615A00078F20 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
-		F76B9F34278D615A00078F20 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		F798CD362B73E54A00467E28 /* CircularLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularLinkedList+Archive.swift"; sourceTree = "<group>"; };
-		F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Archive.swift"; sourceTree = "<group>"; };
-		F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Reverse.swift"; sourceTree = "<group>"; };
-		F7C0AD452BA0D12A0002E79F /* StackList+Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackList+Operator.swift"; sourceTree = "<group>"; };
-		F7CE00F22B75C38A008D893F /* CircularDoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularDoublyLinkedList.swift; sourceTree = "<group>"; };
-		F7CE00F42B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Playground.swift"; sourceTree = "<group>"; };
-		F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Insert.swift"; sourceTree = "<group>"; };
-		F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircularDoublyLinkedList+Delete.swift"; sourceTree = "<group>"; };
-		F7D263922B96224300B8A1AB /* Stack+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stack+Archive.swift"; sourceTree = "<group>"; };
-		F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedList+Find.swift"; sourceTree = "<group>"; };
-		F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublyLinkedList+Archive.swift"; sourceTree = "<group>"; };
-		F7FE9C702C7192DF008EA7EF /* GenericTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTree.swift; sourceTree = "<group>"; };
-		F7FE9C722C7197DE008EA7EF /* GenericTree+Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericTree+Playground.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F72397E22C7F917B005F5DA2 /* Algorithms */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Algorithms; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F76B9F2E278D615A00078F20 /* Frameworks */ = {
@@ -104,82 +37,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F71C28A22797E12700F4D6EA /* CircularList */ = {
-			isa = PBXGroup;
-			children = (
-				F7CE00F22B75C38A008D893F /* CircularDoublyLinkedList.swift */,
-				F7CE00F82B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift */,
-				F7CE00F62B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift */,
-				F7CE00F42B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift */,
-				F71C28A32797E13500F4D6EA /* CircularLinkedList.swift */,
-				F798CD362B73E54A00467E28 /* CircularLinkedList+Archive.swift */,
-				F763290C27992833002CD39C /* CircularLinkedList+Delete.swift */,
-				F71C28A72797E74F00F4D6EA /* CircularLinkedList+Insert.swift */,
-				F71C28A52797E73B00F4D6EA /* CircularLinkedList+Playground.swift */,
-			);
-			path = CircularList;
-			sourceTree = "<group>";
-		};
-		F72DBF84278EB5B20017C0D6 /* LinkedList */ = {
-			isa = PBXGroup;
-			children = (
-				F72DBF7A278EA2300017C0D6 /* LinkedList.swift */,
-				F7B06E5D2B6926F80098EA7C /* LinkedList+Archive.swift */,
-				F72DBF80278EA6AF0017C0D6 /* LinkedList+Delete.swift */,
-				F7E4788D278FE9BB008F5603 /* LinkedList+Find.swift */,
-				F72DBF7E278EA25E0017C0D6 /* LinkedList+Insert.swift */,
-				F72DBF82278EB4860017C0D6 /* LinkedList+Length.swift */,
-				F74F625327913C0700DCDB09 /* LinkedList+Playground.swift */,
-			);
-			path = LinkedList;
-			sourceTree = "<group>";
-		};
-		F73EA6CF282130C9003CBD1E /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-				F73EA6D0282130D3003CBD1E /* StringExercises.swift */,
-			);
-			path = Strings;
-			sourceTree = "<group>";
-		};
-		F74F625027913B9900DCDB09 /* DoublyLinkedList */ = {
-			isa = PBXGroup;
-			children = (
-				F74F625127913BAE00DCDB09 /* DoublyLinkedList.swift */,
-				F7F572552B70F102001D1142 /* DoublyLinkedList+Archive.swift */,
-				F74F62572791413C00DCDB09 /* DoublyLinkedList+Insert.swift */,
-				F74F62592791422900DCDB09 /* DoublyLinkedList+Playground.swift */,
-				F7B1FB622795462A00A31659 /* DoublyLinkedList+Reverse.swift */,
-			);
-			path = DoublyLinkedList;
-			sourceTree = "<group>";
-		};
-		F75C9EC827B233E700A8D21F /* Queue */ = {
-			isa = PBXGroup;
-			children = (
-				F75C9EC927B233FB00A8D21F /* Queue.swift */,
-				F75C9ECB27B2356C00A8D21F /* Queue+Playground.swift */,
-			);
-			path = Queue;
-			sourceTree = "<group>";
-		};
-		F763290E2799341F002CD39C /* Stack */ = {
-			isa = PBXGroup;
-			children = (
-				F7632917279940CD002CD39C /* Stack.swift */,
-				F7D263922B96224300B8A1AB /* Stack+Archive.swift */,
-				F763291327993739002CD39C /* Stack+Playground.swift */,
-				F763291127993587002CD39C /* StackList.swift */,
-				F7C0AD452BA0D12A0002E79F /* StackList+Operator.swift */,
-				F7632915279937CB002CD39C /* StackList+PushPop.swift */,
-			);
-			path = Stack;
-			sourceTree = "<group>";
-		};
 		F76B9F28278D615900078F20 = {
 			isa = PBXGroup;
 			children = (
-				F76B9F33278D615A00078F20 /* Algorithms */,
+				F72397E22C7F917B005F5DA2 /* Algorithms */,
 				F76B9F32278D615A00078F20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -190,31 +51,6 @@
 				F76B9F31278D615A00078F20 /* Algorithms */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F76B9F33278D615A00078F20 /* Algorithms */ = {
-			isa = PBXGroup;
-			children = (
-				F76B9F34278D615A00078F20 /* main.swift */,
-				F74F625527913C3300DCDB09 /* Playground.swift */,
-				F7FE9C752C7197FF008EA7EF /* GenericTree */,
-				F73EA6CF282130C9003CBD1E /* Strings */,
-				F75C9EC827B233E700A8D21F /* Queue */,
-				F763290E2799341F002CD39C /* Stack */,
-				F71C28A22797E12700F4D6EA /* CircularList */,
-				F74F625027913B9900DCDB09 /* DoublyLinkedList */,
-				F72DBF84278EB5B20017C0D6 /* LinkedList */,
-			);
-			path = Algorithms;
-			sourceTree = "<group>";
-		};
-		F7FE9C752C7197FF008EA7EF /* GenericTree */ = {
-			isa = PBXGroup;
-			children = (
-				F7FE9C702C7192DF008EA7EF /* GenericTree.swift */,
-				F7FE9C722C7197DE008EA7EF /* GenericTree+Playground.swift */,
-			);
-			path = GenericTree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +67,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F72397E22C7F917B005F5DA2 /* Algorithms */,
 			);
 			name = Algorithms;
 			productName = Algorithms;
@@ -275,40 +114,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F763290D27992833002CD39C /* CircularLinkedList+Delete.swift in Sources */,
-				F75C9ECA27B233FB00A8D21F /* Queue.swift in Sources */,
-				F7CE00F32B75C38A008D893F /* CircularDoublyLinkedList.swift in Sources */,
-				F72DBF7F278EA25E0017C0D6 /* LinkedList+Insert.swift in Sources */,
-				F7632916279937CB002CD39C /* StackList+PushPop.swift in Sources */,
-				F74F625A2791422900DCDB09 /* DoublyLinkedList+Playground.swift in Sources */,
-				F72DBF83278EB4860017C0D6 /* LinkedList+Length.swift in Sources */,
-				F7B06E5E2B6926F80098EA7C /* LinkedList+Archive.swift in Sources */,
-				F75C9ECC27B2356C00A8D21F /* Queue+Playground.swift in Sources */,
-				F74F625227913BAE00DCDB09 /* DoublyLinkedList.swift in Sources */,
-				F763291427993739002CD39C /* Stack+Playground.swift in Sources */,
-				F798CD372B73E54A00467E28 /* CircularLinkedList+Archive.swift in Sources */,
-				F7F572562B70F102001D1142 /* DoublyLinkedList+Archive.swift in Sources */,
-				F7CE00F52B75C5A4008D893F /* CircularDoublyLinkedList+Playground.swift in Sources */,
-				F72DBF7B278EA2300017C0D6 /* LinkedList.swift in Sources */,
-				F76B9F35278D615A00078F20 /* main.swift in Sources */,
-				F71C28A42797E13500F4D6EA /* CircularLinkedList.swift in Sources */,
-				F7D263932B96224300B8A1AB /* Stack+Archive.swift in Sources */,
-				F74F625627913C3300DCDB09 /* Playground.swift in Sources */,
-				F763291227993587002CD39C /* StackList.swift in Sources */,
-				F7CE00F92B75CB98008D893F /* CircularDoublyLinkedList+Delete.swift in Sources */,
-				F74F62582791413C00DCDB09 /* DoublyLinkedList+Insert.swift in Sources */,
-				F74F625427913C0700DCDB09 /* LinkedList+Playground.swift in Sources */,
-				F7CE00F72B75C6D0008D893F /* CircularDoublyLinkedList+Insert.swift in Sources */,
-				F73EA6D1282130D3003CBD1E /* StringExercises.swift in Sources */,
-				F72DBF81278EA6AF0017C0D6 /* LinkedList+Delete.swift in Sources */,
-				F7FE9C732C7197E4008EA7EF /* GenericTree+Playground.swift in Sources */,
-				F7632918279940CD002CD39C /* Stack.swift in Sources */,
-				F7C0AD462BA0D12A0002E79F /* StackList+Operator.swift in Sources */,
-				F7B1FB632795462A00A31659 /* DoublyLinkedList+Reverse.swift in Sources */,
-				F71C28A62797E73B00F4D6EA /* CircularLinkedList+Playground.swift in Sources */,
-				F7FE9C712C7192E2008EA7EF /* GenericTree.swift in Sources */,
-				F71C28A82797E74F00F4D6EA /* CircularLinkedList+Insert.swift in Sources */,
-				F7E4788E278FE9BB008F5603 /* LinkedList+Find.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

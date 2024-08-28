@@ -1,5 +1,5 @@
 //
-//  GenericTree.swift
+//  GenericTreeNode.swift
 //  Algorithms
 //
 //  Created by Radu Dan on 18.08.2024.
