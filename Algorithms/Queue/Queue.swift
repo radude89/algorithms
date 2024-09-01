@@ -25,4 +25,8 @@ struct Queue<T> {
     var peek: T? {
         items.first
     }
+    
+    var isEmpty: Bool {
+        items.isEmpty
+    }
 }
