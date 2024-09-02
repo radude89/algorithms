@@ -122,4 +122,15 @@ class BinaryTreeNode<T: Equatable> {
         
         bfs()
     }
+    
+    var height: Int {
+        if leftChild == nil && rightChild == nil {
+            return 1
+        }
+
+        let leftHeight = leftChild?.height ?? 0
+        let rightHeight = rightChild?.height ?? 0
+
+        return 1 + max(leftHeight, rightHeight)
+    }
 }
