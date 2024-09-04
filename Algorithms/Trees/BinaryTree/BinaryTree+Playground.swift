@@ -11,13 +11,11 @@ extension BinaryTreeNode: Playground {
         let root = BinaryTreeNode<Int>(data: 1)
         let left = BinaryTreeNode<Int>(data: 2)
         let right = BinaryTreeNode<Int>(data: 3)
-        let rightLeft = BinaryTreeNode<Int>(data: 4)
         
         root.leftChild = left
-        right.leftChild = rightLeft
         root.rightChild = right
         
-        print(root.height)
+        print(root.size)
     }
 }
 

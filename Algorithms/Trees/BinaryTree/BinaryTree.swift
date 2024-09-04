@@ -133,4 +133,13 @@ class BinaryTreeNode<T: Equatable> {
 
         return 1 + max(leftHeight, rightHeight)
     }
+    
+    var size: Int {
+        if leftChild == nil && rightChild == nil {
+            return 1
+        }
+        let leftSize = leftChild?.size ?? 0
+        let rightSize = rightChild?.size ?? 0
+        return 1 + leftSize + rightSize
+    }
 }
