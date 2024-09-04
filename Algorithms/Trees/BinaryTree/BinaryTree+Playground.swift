@@ -23,7 +23,7 @@ extension BinaryTreeNode: Playground {
         root.leftChild = left
         root.rightChild = right
         
-        root.traverseInSpiralUsingStacks()
+        root.reverseLevelOrderTraversal()
     }
 }
 

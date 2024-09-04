@@ -179,4 +179,25 @@ class BinaryTreeNode<T: Equatable> {
             }
         }
     }
+    
+    // MARK: - Reverse level order traversal
+    
+    func reverseLevelOrderTraversal() {
+        let stack = StackList<BinaryTreeNode>()
+        stack.push(self)
+        while let current = stack.peek,
+                current.leftChild != nil,
+                current.rightChild != nil {
+            if let right = current.rightChild {
+                stack.push(right)
+            }
+            if let left = current.leftChild {
+                stack.push(left)
+            }
+        }
+        while stack.peek != nil {
+            guard let current = stack.pop() else { return }
+            print(current.data)
+        }
+    }
 }
