@@ -123,6 +123,8 @@ class BinaryTreeNode<T: Equatable> {
         bfs()
     }
     
+    // MARK: - Height
+    
     var height: Int {
         if leftChild == nil && rightChild == nil {
             return 1
@@ -134,6 +136,8 @@ class BinaryTreeNode<T: Equatable> {
         return 1 + max(leftHeight, rightHeight)
     }
     
+    // MARK: - Size
+    
     var size: Int {
         if leftChild == nil && rightChild == nil {
             return 1
@@ -141,5 +145,38 @@ class BinaryTreeNode<T: Equatable> {
         let leftSize = leftChild?.size ?? 0
         let rightSize = rightChild?.size ?? 0
         return 1 + leftSize + rightSize
+    }
+    
+    // MARK: - Spiral traversal
+    
+    func traverseInSpiralUsingStacks() {
+        let stack1 = StackList<BinaryTreeNode>()
+        let stack2 = StackList<BinaryTreeNode>()
+        
+        stack1.push(self)
+        
+        while !stack1.isEmpty || !stack2.isEmpty {
+            while !stack1.isEmpty {
+                let current = stack1.pop()
+                print(String(describing: current?.data))
+                if let right = current?.rightChild {
+                    stack2.push(right)
+                }
+                if let left = current?.leftChild {
+                    stack2.push(left)
+                }
+            }
+            
+            while !stack2.isEmpty {
+                let current = stack2.pop()
+                print(String(describing: current?.data))
+                if let left = current?.leftChild {
+                    stack1.push(left)
+                }
+                if let right = current?.rightChild {
+                    stack1.push(right)
+                }
+            }
+        }
     }
 }
