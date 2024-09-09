@@ -11,19 +11,21 @@ extension BinaryTreeNode: Playground {
         let root = BinaryTreeNode<Int>(data: 1)
         let left = BinaryTreeNode<Int>(data: 2)
         let right = BinaryTreeNode<Int>(data: 3)
+        
         let leftLeft = BinaryTreeNode<Int>(data: 4)
         let leftRight = BinaryTreeNode<Int>(data: 5)
-        let rightLeft = BinaryTreeNode<Int>(data: 6)
-        let rightRight = BinaryTreeNode<Int>(data: 7)
         
-        left.leftChild = leftLeft
-        left.rightChild = leftRight
-        right.leftChild = rightLeft
-        right.rightChild = rightRight
+        let rightLeft = BinaryTreeNode<Int>(data: 6)
+        
         root.leftChild = left
         root.rightChild = right
         
-        root.reverseLevelOrderTraversal()
+        left.leftChild = leftLeft
+        left.rightChild = leftRight
+        
+        right.rightChild = rightLeft
+        
+        root.traverseDepthOrderWithStack()
     }
 }
 

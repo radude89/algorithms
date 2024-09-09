@@ -28,6 +28,23 @@ class BinaryTreeNode<T: Equatable> {
         rightChild?.traversePreorder()
     }
     
+    func traverseDepthOrderWithStack() {
+        let stack = StackList<BinaryTreeNode<T>>()
+        stack.push(self)
+        while !stack.isEmpty {
+            guard let current = stack.pop() else { return }
+            
+            print(current.data)
+            
+            if let right = current.rightChild {
+                stack.push(right)
+            }
+            if let left = current.leftChild {
+                stack.push(left)
+            }
+        }
+    }
+    
     func traverseInorder() {
         leftChild?.traversePreorder()
         print(data)
