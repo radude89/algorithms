@@ -7,25 +7,22 @@
 import Foundation
 
 extension BinaryTreeNode: Playground {
+    private typealias Node = BinaryTreeNode<Int>
     static func executeOperations() {
-        let root = BinaryTreeNode<Int>(data: 1)
-        let left = BinaryTreeNode<Int>(data: 2)
-        let right = BinaryTreeNode<Int>(data: 3)
-        
-        let leftLeft = BinaryTreeNode<Int>(data: 4)
-        let leftRight = BinaryTreeNode<Int>(data: 5)
-        
-        let rightLeft = BinaryTreeNode<Int>(data: 6)
+        let root = Node(data: 3)
+        let left = Node(data: 11)
+        let right = Node(data: 4)
+        let leftLeft = Node(data: 4)
+        let leftRight = Node(data: 2)
+        let rightRight = Node(data: 1)
         
         root.leftChild = left
-        root.rightChild = right
-        
         left.leftChild = leftLeft
         left.rightChild = leftRight
+        root.rightChild = right
+        right.rightChild = rightRight
         
-        right.rightChild = rightLeft
-        
-        root.traverseDepthOrderWithStack()
+        print(root.sum())
     }
 }
 

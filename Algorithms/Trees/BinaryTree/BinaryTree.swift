@@ -65,10 +65,13 @@ class BinaryTreeNode<T: Equatable> {
         
         while !queue.items.isEmpty {
             guard let current = queue.dequeue() else { return }
+            
             print("\(String(describing: current.data))")
+            
             if let left = current.leftChild {
                 queue.enqueue(left)
             }
+            
             if let right = current.rightChild {
                 queue.enqueue(right)
             }
@@ -216,5 +219,16 @@ class BinaryTreeNode<T: Equatable> {
             guard let current = stack.pop() else { return }
             print(current.data)
         }
+    }
+    
+    // MARK: - Sum
+    
+    func sum() -> Int {
+        guard let value = data as? Int else { return -1 }
+        
+        let leftSum = leftChild?.sum() ?? 0
+        let rightSum = rightChild?.sum() ?? 0
+        
+        return value + leftSum + rightSum
     }
 }

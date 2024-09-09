@@ -112,6 +112,10 @@ Each node has only two children.
 
 Internal nodes = the nodes that are not leaves
 
+### Traversals
+
+<img src="images/btree_traversal.png" />
+
 ### Degenerate Binary Tree
 
 A degenerate binary tree, also known as a pathological binary tree, is a type of binary tree where each parent node has only one child. This means that the tree is essentially a linked list, with no node having two children.
