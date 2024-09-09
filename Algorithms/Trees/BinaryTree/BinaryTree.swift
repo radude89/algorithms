@@ -223,12 +223,39 @@ class BinaryTreeNode<T: Equatable> {
     
     // MARK: - Sum
     
-    func sum() -> Int {
+    var sum: Int {
         guard let value = data as? Int else { return -1 }
         
-        let leftSum = leftChild?.sum() ?? 0
-        let rightSum = rightChild?.sum() ?? 0
+        let leftSum = leftChild?.sum ?? 0
+        let rightSum = rightChild?.sum ?? 0
         
         return value + leftSum + rightSum
+    }
+    
+    // MARK: - Min value
+    
+    var min: Int {
+        guard let value = data as? Int else { return -1 }
+        
+        var minValue = value
+        var queue = Queue(items: [self])
+        
+        while !queue.isEmpty {
+            guard let current = queue.dequeue() else { continue }
+
+            if let data =  current.data as? Int, data < minValue {
+                minValue = data
+            }
+            
+            if let left = current.leftChild {
+                queue.enqueue(left)
+            }
+            
+            if let right = current.rightChild {
+                queue.enqueue(right)
+            }
+        }
+        
+        return minValue
     }
 }
