@@ -63,7 +63,7 @@ class BinaryTreeNode<T: Equatable> {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
         
-        while !queue.items.isEmpty {
+        while !queue.isEmpty {
             guard let current = queue.dequeue() else { return }
             
             print("\(String(describing: current.data))")
@@ -84,7 +84,7 @@ class BinaryTreeNode<T: Equatable> {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
         
-        while !queue.items.isEmpty {
+        while !queue.isEmpty {
             guard let current = queue.dequeue() else { return }
             if current.leftChild == nil {
                 current.leftChild = node
@@ -257,5 +257,32 @@ class BinaryTreeNode<T: Equatable> {
         }
         
         return minValue
+    }
+    
+    // MARK: - Max path sum
+    
+    func maxPathSum() -> Int {
+        guard data is Int else { return 0 }
+
+        var queue = Queue<BinaryTreeNode>()
+        queue.enqueue(self)
+        
+        var leftSum = data as! Int
+        var rightSum = data as! Int
+        
+        while !queue.isEmpty {
+            guard let current = queue.dequeue() else { continue }
+            
+            if let left = current.leftChild {
+                leftSum += left.data as! Int
+                queue.enqueue(left)
+            }
+            if let right = current.rightChild {
+                rightSum += right.data as! Int
+                queue.enqueue(right)
+            }
+        }
+        
+        return max(leftSum, rightSum)
     }
 }

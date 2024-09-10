@@ -13,8 +13,8 @@ extension BinaryTreeNode: Playground {
         let left = Node(data: 11)
         let right = Node(data: 3)
         let leftLeft = Node(data: 4)
-        let leftRight = Node(data: 15)
-        let rightRight = Node(data: 12)
+        let leftRight = Node(data: 2)
+        let rightRight = Node(data: 1)
         
         root.leftChild = left
         left.leftChild = leftLeft
@@ -22,7 +22,7 @@ extension BinaryTreeNode: Playground {
         root.rightChild = right
         right.rightChild = rightRight
         
-        print(root.min)
+        print(root.maxPathSum())
     }
 }
 
