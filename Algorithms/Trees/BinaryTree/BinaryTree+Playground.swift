@@ -28,6 +28,8 @@ extension BinaryTreeNode: Playground {
         right.rightChild = rightRight
         rightRight.rightChild = rightRightRight
         
-        print(root.search(value: 6) ?? "nil")
+        root.insertInBinarySearchTree(value: 2)
+        
+        root.bfs()
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Radu Dan on 28.08.2024.
 //
 
-class BinaryTreeNode<T: Equatable> {
+class BinaryTreeNode<T: Comparable> {
     var data: T
     var leftChild: BinaryTreeNode?
     var rightChild: BinaryTreeNode?
@@ -234,16 +234,14 @@ class BinaryTreeNode<T: Equatable> {
     
     // MARK: - Min value
     
-    var min: Int {
-        guard let value = data as? Int else { return -1 }
-        
-        var minValue = value
+    var min: T {
+        var minValue = data
         var queue = Queue(items: [self])
         
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { continue }
-
-            if let data =  current.data as? Int, data < minValue {
+            
+            if current.data < minValue {
                 minValue = data
             }
             
@@ -261,24 +259,22 @@ class BinaryTreeNode<T: Equatable> {
     
     // MARK: - Max path sum
     
-    func maxPathSum() -> Int {
-        guard data is Int else { return 0 }
-
+    func maxPathSum() -> T where T: Numeric {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
         
-        var leftSum = data as! Int
-        var rightSum = data as! Int
+        var leftSum = data
+        var rightSum = data
         
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { continue }
             
             if let left = current.leftChild {
-                leftSum += left.data as! Int
+                leftSum = left.data + leftSum
                 queue.enqueue(left)
             }
             if let right = current.rightChild {
-                rightSum += right.data as! Int
+                rightSum += right.data
                 queue.enqueue(right)
             }
         }
