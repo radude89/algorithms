@@ -28,8 +28,8 @@ extension BinaryTreeNode: Playground {
         right.rightChild = rightRight
         rightRight.rightChild = rightRightRight
         
-        root.insertInBinarySearchTree(value: 2)
+        let deletedTree = root.deleteInBinarySearchTree(value: 8)
         
-        root.bfs()
+        deletedTree?.bfs()
     }
 }

@@ -34,4 +34,31 @@ extension BinaryTreeNode {
             }
         }
     }
+    
+    func deleteInBinarySearchTree(value: T) -> BinaryTreeNode? {
+        if value < data {
+            leftChild = leftChild?.deleteInBinarySearchTree(value: value)
+        } else if value > data {
+            rightChild = rightChild?.deleteInBinarySearchTree(value: value)
+        } else {
+            if leftChild == nil && rightChild == nil {
+                return nil
+            }
+            
+            if leftChild == nil {
+                return rightChild
+            } else if rightChild == nil {
+                return leftChild
+            }
+            
+            let minRightSubTree = rightChild?.findMin()
+            data = minRightSubTree!.data
+            rightChild = rightChild?.deleteInBinarySearchTree(value: minRightSubTree!.data)
+        }
+        return self
+    }
+    
+    func findMin() -> BinaryTreeNode {
+        return leftChild?.findMin() ?? self
+    }
 }
