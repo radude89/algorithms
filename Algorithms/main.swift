@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-BinaryTreeNode<Int>.executeOperations()
+AVLTreeNode<Int>.executeOperations()

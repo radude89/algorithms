@@ -312,6 +312,24 @@ Benefits of AVL Trees:
 - Guaranteed O(log n) Time Complexity: Since AVL trees maintain balance, the height of the tree is kept at O(log n), ensuring that operations like search, insert, and delete are performed in O(log n) time.
 - Self-Balancing: AVL trees automatically adjust after operations, making them efficient for use in scenarios where frequent insertions and deletions occur.
 
+#### Left Rotation
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221229131815/avl11-(1)-768.png" width="50%" />
+
+#### Right Rotation
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20231102165654/avl-tree.jpg" width="50%" />
+
+#### Left-Right Rotation
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221229131629/avl33-(1)-768.png" width="50%" />
+
+#### Right-Left Rotation
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221229131517/avl44-(1)-768.png" width="50%" />
+
+#### Details
+
 <details>
   <summary>Formulas</summary>
 
