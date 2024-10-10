@@ -33,28 +33,38 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
             }
         }
         updateHeight()
+
         let balanceFactor = balance
-        if (abs(balanceFactor) > 1), rightChild != nil {
-            // TODO: Check if is RL
+        if balanceFactor > 1, let leftChild, value < leftChild.data {
+            return rightRotate()
+        } else if balanceFactor < -1, let rightChild, value > rightChild.data {
             return leftRotate()
+        } else if balanceFactor < -1, let rightChild, value < rightChild.data {
+            // RL
+            self.rightChild = rightChild.rightRotate()
+            return leftRotate()
+        } else if balanceFactor > 1, let leftChild, value > leftChild.data {
+            // LR
+            self.leftChild = leftChild.leftRotate()
+            return rightRotate()
         }
         
         return self
+    }
+
+    func rightRotate() -> AVLTreeNode {
+        let newRoot = leftChild!
+        leftChild = newRoot.rightChild
+        newRoot.rightChild = self
+        updateHeight()
+        newRoot.updateHeight()
+        return newRoot
     }
     
     func leftRotate() -> AVLTreeNode {
         let newRoot = rightChild!
         rightChild = newRoot.leftChild
         newRoot.leftChild = self
-        updateHeight()
-        newRoot.updateHeight()
-        return newRoot
-    }
-    
-    func rightRotate() -> AVLTreeNode {
-        let newRoot = leftChild!
-        leftChild = newRoot.rightChild
-        newRoot.rightChild = self
         updateHeight()
         newRoot.updateHeight()
         return newRoot
