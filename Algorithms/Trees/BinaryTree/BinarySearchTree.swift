@@ -48,7 +48,7 @@ extension BinaryTreeNode {
             } else if rightChild == nil {
                 return leftChild
             } else {
-                let minRightSubTree = rightChild?.findMin()
+                let minRightSubTree = rightChild?.minimumNode
                 data = minRightSubTree!.data
                 rightChild = rightChild?.deleteInBinarySearchTree(value: minRightSubTree!.data)
             }
@@ -56,7 +56,7 @@ extension BinaryTreeNode {
         return self
     }
     
-    func findMin() -> BinaryTreeNode {
-        return leftChild?.findMin() ?? self
+    var minimumNode: BinaryTreeNode {
+        leftChild?.minimumNode ?? self
     }
 }

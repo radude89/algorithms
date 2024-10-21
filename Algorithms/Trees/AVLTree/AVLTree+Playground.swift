@@ -23,6 +23,8 @@ extension AVLTreeNode: Playground {
         
         // 8, 7, 11, 14
         tree = tree?.delete(8)
-        
+        tree = tree?.delete(7)
+        tree = tree?.delete(11)
+        tree = tree?.delete(14)
     }
 }
