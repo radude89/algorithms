@@ -194,6 +194,18 @@ Red Black Trees are a type of balanced binary search tree that use a set of rule
 
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240520123005/Red-black-Tree-banner.webp" />
 
+#### Why Red-Black Trees?
+
+Most of the BST operations (e.g., search, max, min, insert, delete.. etc) take O(h) time where h is the height of the BST. The cost of these operations may become O(n) for a skewed Binary tree. If we make sure that the height of the tree remains O(log n) after every insertion and deletion, then we can guarantee an upper bound of O(log n) for all these operations. The height of a Red-Black tree is always O(log n) where n is the number of nodes in the tree.
+
+_[Source here](https://www.geeksforgeeks.org/introduction-to-red-black-tree/)_
+
+**Complexity**
+
+1.	Search	O(log n)
+2.	Insert	O(log n)
+3.	Delete	O(log n)
+
 ### B-Tree
 
 A B-Tree is a self-balancing tree data structure commonly used in databases and file systems to manage large amounts of sorted data efficiently. It is designed to allow for fast data retrieval, insertion, and deletion while keeping the tree balanced.
