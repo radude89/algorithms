@@ -43,17 +43,15 @@ extension BinaryTreeNode {
         } else {
             if leftChild == nil && rightChild == nil {
                 return nil
-            }
-            
-            if leftChild == nil {
+            } else if leftChild == nil {
                 return rightChild
             } else if rightChild == nil {
                 return leftChild
+            } else {
+                let minRightSubTree = rightChild?.findMin()
+                data = minRightSubTree!.data
+                rightChild = rightChild?.deleteInBinarySearchTree(value: minRightSubTree!.data)
             }
-            
-            let minRightSubTree = rightChild?.findMin()
-            data = minRightSubTree!.data
-            rightChild = rightChild?.deleteInBinarySearchTree(value: minRightSubTree!.data)
         }
         return self
     }

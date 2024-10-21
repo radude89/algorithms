@@ -4,6 +4,7 @@
 //
 //  Created by Radu Dan on 25.09.2024.
 //
+import Foundation
 
 class AVLTreeNode<T: SignedNumeric & Comparable> {
     var data: T
@@ -50,6 +51,51 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
         }
         
         return self
+    }
+    
+    func delete(_ value: T) -> AVLTreeNode? {
+        let newTree = deleteNode(value: value)
+        return newTree
+    }
+    
+    private func deleteNode(value: T) -> AVLTreeNode? {
+        if value < data {
+            leftChild = leftChild?.delete(value)
+        } else if value > data {
+            rightChild = rightChild?.delete(value)
+        } else {
+            if leftChild == nil && rightChild == nil {
+                return nil
+            } else if leftChild == nil {
+                return rightChild
+            } else if rightChild == nil {
+                return leftChild
+            } else {
+                let minRightSubTree = rightChild?.findMin()
+                data = minRightSubTree!.data
+                rightChild = rightChild?.delete(minRightSubTree!.data)
+            }
+        }
+        updateHeight()
+
+        let balanceFactor = balance
+        if balanceFactor > 1 {
+            if let leftChild = leftChild, leftChild.balance < 0 {
+                self.leftChild = leftChild.leftRotate() // Left Right case
+            }
+            return rightRotate() // Left Left case
+        } else if balanceFactor < -1 {
+            if let rightChild = rightChild, rightChild.balance > 0 {
+                self.rightChild = rightChild.rightRotate() // Right Left case
+            }
+            return leftRotate() // Right Right case
+        }
+
+        return self
+    }
+    
+    func findMin() -> AVLTreeNode {
+        return leftChild?.findMin() ?? self
     }
 
     func rightRotate() -> AVLTreeNode {
