@@ -48,6 +48,11 @@ extension BinaryTreeNode {
             } else if rightChild == nil {
                 return leftChild
             } else {
+                // Replace with the In-order Predecessor (the largest node in the left subtree).
+                // or
+                // Replace with the In-order Successor (the smallest node in the right subtree).
+                //
+                // In our case, we are going to replace it with the smallest node from the right subtree.
                 let minRightSubTree = rightChild?.minimumNode
                 data = minRightSubTree!.data
                 rightChild = rightChild?.deleteInBinarySearchTree(value: minRightSubTree!.data)
@@ -58,5 +63,9 @@ extension BinaryTreeNode {
     
     var minimumNode: BinaryTreeNode {
         leftChild?.minimumNode ?? self
+    }
+    
+    var maximumNode: BinaryTreeNode {
+        rightChild?.maximumNode ?? self
     }
 }
