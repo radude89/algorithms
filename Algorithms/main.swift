@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-AVLTreeNode<Int>.executeOperations()
+RedBlackTreeNode<Int>.executeOperations()
