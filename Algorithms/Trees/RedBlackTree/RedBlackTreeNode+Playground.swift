@@ -10,8 +10,12 @@ extension RedBlackTreeNode: Playground {
     private typealias Node = RedBlackTreeNode<Int>
     static func executeOperations() {
         print("Hello RBT")
-        let node = Node(data: 2)
-        node.insert(value: 3)
+        var node = Node(data: 20)
+        node = node.insert(value: 18)
+        node = node.insert(value: 21)
+        node = node.insert(value: 19)
 
     }
 }
+
+

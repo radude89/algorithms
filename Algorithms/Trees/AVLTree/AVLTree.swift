@@ -11,14 +11,14 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
     var leftChild: AVLTreeNode?
     var rightChild: AVLTreeNode?
     var height: Int
-    
+
     init(data: T, leftChild: AVLTreeNode? = nil, rightChild: AVLTreeNode? = nil) {
         self.data = data
         self.leftChild = leftChild
         self.rightChild = rightChild
         self.height = 0
     }
-    
+
     func insert(_ value: T) -> AVLTreeNode {
         if value > data {
             if let rightChild {
@@ -36,28 +36,32 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
         updateHeight()
 
         let balanceFactor = balance
-        if balanceFactor > 1, let leftChild, value < leftChild.data {
-            return rightRotate()
-        } else if balanceFactor < -1, let rightChild, value > rightChild.data {
-            return leftRotate()
-        } else if balanceFactor < -1, let rightChild, value < rightChild.data {
-            // RL
-            self.rightChild = rightChild.rightRotate()
-            return leftRotate()
-        } else if balanceFactor > 1, let leftChild, value > leftChild.data {
-            // LR
-            self.leftChild = leftChild.leftRotate()
-            return rightRotate()
+        if balanceFactor > 1, let leftChild {
+            if value < leftChild.data {
+                return rightRotate()
+            } else if value > leftChild.data {
+                // LR
+                self.leftChild = leftChild.leftRotate()
+                return rightRotate()
+            }
+        } else if balanceFactor < -1, let rightChild {
+            if value > rightChild.data {
+                return leftRotate()
+            } else if value < rightChild.data {
+                // RL
+                self.rightChild = rightChild.rightRotate()
+                return leftRotate()
+            }
         }
-        
+
         return self
     }
-    
+
     func delete(_ value: T) -> AVLTreeNode? {
         let newTree = deleteNode(value: value)
         return newTree
     }
-    
+
     private func deleteNode(value: T) -> AVLTreeNode? {
         if value < data {
             leftChild = leftChild?.delete(value)
@@ -76,9 +80,9 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
                 rightChild = rightChild?.delete(minRightSubTree!.data)
             }
         }
-        
+
         updateHeight()
-        
+
         let balanceFactor = balance
         if balanceFactor > 1, let leftChild, value < leftChild.data {
             return rightRotate()
@@ -96,7 +100,7 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
 
         return self
     }
-    
+
     var minimumNode: AVLTreeNode {
         leftChild?.minimumNode ?? self
     }
@@ -109,7 +113,7 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
         newRoot.updateHeight()
         return newRoot
     }
-    
+
     func leftRotate() -> AVLTreeNode {
         let newRoot = rightChild!
         rightChild = newRoot.leftChild
@@ -118,13 +122,13 @@ class AVLTreeNode<T: SignedNumeric & Comparable> {
         newRoot.updateHeight()
         return newRoot
     }
-    
+
     func updateHeight() {
         let leftHeight = leftChild?.height ?? -1
         let rightHeight = rightChild?.height ?? -1
         height = 1 + max(leftHeight, rightHeight)
     }
-    
+
     var balance: Int  {
         let leftHeight = leftChild?.height ?? -1
         let rightHeight = rightChild?.height ?? -1

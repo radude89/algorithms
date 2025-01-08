@@ -206,6 +206,14 @@ _[Source here](https://www.geeksforgeeks.org/introduction-to-red-black-tree/)_
 2.	Insert	O(log n)
 3.	Delete	O(log n)
 
+#### Rules
+
+<img src="images/rbt_rules.png" />
+
+_[Source here](https://www.youtube.com/watch?v=qA02XWRTBdw&ab_channel=Jenny%27sLecturesCSIT)_
+- Video: 5.17 Red Black Tree Insertion | Insertion Algorithm | Data Structure Tutorials
+- Youtube channel: [Jenny's Lectures CS IT](https://www.youtube.com/@JennyslecturesCSIT)
+
 ### B-Tree
 
 A B-Tree is a self-balancing tree data structure commonly used in databases and file systems to manage large amounts of sorted data efficiently. It is designed to allow for fast data retrieval, insertion, and deletion while keeping the tree balanced.
