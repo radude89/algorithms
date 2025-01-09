@@ -34,6 +34,7 @@ extension RedBlackTreeNode {
             } else {
                 leftChild = RedBlackTreeNode(data: value)
                 leftChild?.parent = self
+                return leftChild!.fixRedBlackTreeAfterInsertion()
             }
         } else if value > data {
             if let rightChild {
@@ -41,10 +42,11 @@ extension RedBlackTreeNode {
             } else {
                 rightChild = RedBlackTreeNode(data: value)
                 rightChild?.parent = self
+                return rightChild!.fixRedBlackTreeAfterInsertion()
             }
         }
 
-        return fixRedBlackTreeAfterInsertion()
+        return self
     }
 
     private func fixRedBlackTreeAfterInsertion() -> RedBlackTreeNode {
