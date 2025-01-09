@@ -10,7 +10,6 @@ class RedBlackTreeNode<T: SignedNumeric & Comparable> {
     var data: T
     var leftChild: RedBlackTreeNode?
     var rightChild: RedBlackTreeNode?
-    var height: Int
     var isRed: Bool
     var parent: RedBlackTreeNode?
 
@@ -22,7 +21,6 @@ class RedBlackTreeNode<T: SignedNumeric & Comparable> {
         self.data = data
         self.leftChild = leftChild
         self.rightChild = rightChild
-        height = 0
         isRed = true
         parent = nil
     }
@@ -35,83 +33,78 @@ extension RedBlackTreeNode {
                 self.leftChild = leftChild.insert(value: value)
             } else {
                 leftChild = RedBlackTreeNode(data: value)
+                leftChild?.parent = self
             }
         } else if value > data {
             if let rightChild {
                 self.rightChild = rightChild.insert(value: value)
             } else {
                 rightChild = RedBlackTreeNode(data: value)
+                rightChild?.parent = self
             }
         }
 
-        updateHeight()
-        return fixRedBlackProperties(self)
+        return fixRedBlackTreeAfterInsertion()
     }
 
-    private func updateHeight() {
-        let leftHeight = leftChild?.height ?? -1
-        let rightHeight = rightChild?.height ?? -1
-        height = 1 + max(leftHeight, rightHeight)
-    }
-
-    private func fixRedBlackProperties(_ node: RedBlackTreeNode) -> RedBlackTreeNode {
-        // Case 1: Root node should be black
-        if parent == nil {
+    private func fixRedBlackTreeAfterInsertion() -> RedBlackTreeNode {
+        guard let parent, parent.isRed else {
             isRed = false
             return self
         }
 
-        // Case 2: If parent is black, tree is valid
-        if !parent!.isRed {
-            return self
-        }
-
-        // Case 3: If uncle is red, recolor parent, uncle, and grandparent
-        let uncle = uncle
-        let grandparent = parent?.parent
-
-        if let uncle, uncle.isRed {
-            parent?.isRed = false
-            uncle.isRed = false
-            grandparent?.isRed = true
-            return grandparent?.fixRedBlackProperties(grandparent!) ?? self
-        }
-
-        // Case 4: If uncle is black and node is inner child
-        var newNode = self
-        if let grandparent = grandparent {
-            if !isLeftChild && parent?.isLeftChild == true {
-                parent?.rotateLeft()
-                newNode = leftChild!
-            } else if isLeftChild && parent?.isLeftChild == false {
-                parent?.rotateRight()
-                newNode = rightChild!
+        if siblingOfParent == nil || siblingOfParent?.isRed == false {
+            // Do suitable rotation AND recolor
+            if self === parent.rightChild && grandparent?.leftChild === parent {
+                // LR rotation
+                parent.rotateLeft()
+            } else if self === parent.leftChild && grandparent?.rightChild === parent {
+                // RL rotation
+                parent.rotateRight()
             }
-
-            // Case 5: If uncle is black and node is outer child
-            newNode.handleOuterChild(grandparent)
+            parent.isRed = false
+            if let grandparent {
+                grandparent.isRed = true
+                if isLeftChild {
+                    grandparent.rotateRight()
+                } else {
+                    grandparent.rotateLeft()
+                }
+            }
+        } else if siblingOfParent?.isRed == true {
+            parent.isRed = false
+            siblingOfParent?.isRed = false
+            if let grandparent {
+                grandparent.isRed = true
+                return grandparent.fixRedBlackTreeAfterInsertion()
+            }
         }
 
         return self
     }
 
-    private var uncle: RedBlackTreeNode? {
-        parent?.parent?.leftChild === parent ? parent?.parent?.rightChild : parent?.parent?.leftChild
+    private var grandparent: RedBlackTreeNode? {
+        parent?.parent
+    }
+
+    private var siblingOfParent: RedBlackTreeNode? {
+        guard let grandparent else {
+            return nil
+        }
+
+        if grandparent.leftChild === parent {
+            return grandparent.rightChild
+        }
+
+        if grandparent.rightChild === parent {
+            return grandparent.leftChild
+        }
+
+        return nil
     }
 
     private var isLeftChild: Bool {
         parent?.leftChild === self
-    }
-
-    private func handleOuterChild(_ grandparent: RedBlackTreeNode) {
-        parent?.isRed = false
-        grandparent.isRed = true
-
-        if isLeftChild {
-            grandparent.rotateRight()
-        } else {
-            grandparent.rotateLeft()
-        }
     }
 }
 
@@ -120,7 +113,8 @@ extension RedBlackTreeNode {
 private extension RedBlackTreeNode {
     @discardableResult
     func rotateLeft() -> RedBlackTreeNode {
-        let newRoot = rightChild!
+        guard let newRoot = rightChild else { return self }
+
         rightChild = newRoot.leftChild
         rightChild?.parent = self
         newRoot.leftChild = self
@@ -135,14 +129,13 @@ private extension RedBlackTreeNode {
             }
         }
 
-        updateHeight()
-        newRoot.updateHeight()
         return newRoot
     }
 
     @discardableResult
     func rotateRight() -> RedBlackTreeNode {
-        let newRoot = leftChild!
+        guard let newRoot = leftChild else { return self }
+
         leftChild = newRoot.rightChild
         leftChild?.parent = self
         newRoot.rightChild = self
@@ -157,8 +150,6 @@ private extension RedBlackTreeNode {
             }
         }
 
-        updateHeight()
-        newRoot.updateHeight()
         return newRoot
     }
 }
