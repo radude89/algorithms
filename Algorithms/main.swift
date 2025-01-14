@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-RedBlackTreeNode<Int>.executeOperations()
+Graph.executeOperations()
