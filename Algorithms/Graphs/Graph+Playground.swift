@@ -8,10 +8,10 @@ import Foundation
 
 extension Graph: Playground {
     static func executeOperations() {
-        basicInsertion()
+        executeGraphOperations()
     }
 
-    private static func basicInsertion() {
+    private static func executeGraphOperations() {
         // https://media.geeksforgeeks.org/wp-content/uploads/20230727130331/Undirected_to_Adjacency_matrix.png
         _ = Graph(
             matrix: [
@@ -21,27 +21,8 @@ extension Graph: Playground {
             ]
         )
 
-        let firstList = LinkedList<Int>()
-        firstList.insertAtEnd(data: 1)
-        firstList.insertAtEnd(data: 2)
-
-        let secondList = LinkedList<Int>()
-        secondList.insertAtEnd(data: 0)
-        secondList.insertAtEnd(data: 2)
-
-        let thirdList = LinkedList<Int>()
-        thirdList.insertAtEnd(data: 0)
-        thirdList.insertAtEnd(data: 1)
-
-
-        let graphList = GraphList(
-            adjacencyLists: [
-                firstList,
-                secondList,
-                thirdList,
-            ]
-        )
-
-        graphList.breadthFirstTraversal()
+         let matrix = [[2,3,1], [0], [0,4], [0], [2]]
+         let graph = GraphList(matrix: matrix)
+         graph.depthFirstTraversal() // Output: 0 2 4 3 1
     }
 }
