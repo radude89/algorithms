@@ -8,6 +8,10 @@ import Foundation
 
 extension Graph: Playground {
     static func executeOperations() {
+        basicInsertion()
+    }
+
+    private static func basicInsertion() {
         // https://media.geeksforgeeks.org/wp-content/uploads/20230727130331/Undirected_to_Adjacency_matrix.png
         _ = Graph(
             matrix: [
@@ -38,6 +42,6 @@ extension Graph: Playground {
             ]
         )
 
-        print(graphList)
+        graphList.breadthFirstTraversal()
     }
 }
