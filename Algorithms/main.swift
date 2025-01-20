@@ -9,6 +9,4 @@ import Foundation
 
 // MARK: - main
 
-let array = [9, 1, 8, 2, 7, 3, 6, 4, 5]
-let sortedArray = QuickSort.execute(array: array)
-print(sortedArray)
+Heap.executeOperations()
