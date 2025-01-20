@@ -39,4 +39,38 @@ final class MaxHeap {
             currentIndex = parentIndex
         }
     }
+
+    func delete() {
+        guard !elements.isEmpty else { return }
+
+        elements[0] = elements[elements.count - 1]
+        elements.removeLast()
+
+        var currentIndex = 0
+
+        while true {
+            let leftChildIndex = 2 * currentIndex + 1
+            let rightChildIndex = 2 * currentIndex + 2
+            var largestIndex = currentIndex
+
+            if leftChildIndex < elements.count,
+               elements[leftChildIndex] > elements[largestIndex] {
+                largestIndex = leftChildIndex
+            }
+
+            if rightChildIndex < elements.count,
+               elements[rightChildIndex] > elements[largestIndex] {
+                largestIndex = rightChildIndex
+            }
+
+            if largestIndex == currentIndex { break }
+
+            let temp = elements[currentIndex]
+            elements[currentIndex] = elements[largestIndex]
+            elements[largestIndex] = temp
+
+            currentIndex = largestIndex
+        }
+
+    }
 }

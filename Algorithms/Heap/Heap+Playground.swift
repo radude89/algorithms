@@ -16,5 +16,9 @@ enum Heap: Playground {
         )
         maxHeap.insert(element: 60)
         print(maxHeap.elements)
+
+        maxHeap.delete()
+        print("After deletion")
+        print(maxHeap.elements)
     }
 }
