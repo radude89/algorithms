@@ -9,4 +9,4 @@ import Foundation
 
 // MARK: - main
 
-Heap.executeOperations()
+TrieNode.executeOperations()
