@@ -101,10 +101,32 @@ class BinaryTreeNode<T: Comparable> {
             }
         }
     }
-    
+
+    func insert(data: T) {
+        var queue = [self]
+        while !queue.isEmpty {
+            let node = queue.removeFirst()
+            if node.leftChild == nil {
+                node.leftChild = BinaryTreeNode(data: data)
+                node.leftChild = BinaryTreeNode(data: data)
+                return
+            } else if node.rightChild == nil {
+                node.rightChild = BinaryTreeNode(data: data)
+                return
+            } else {
+                if let leftChild {
+                    queue.append(leftChild)
+                }
+                if let rightChild {
+                    queue.append(rightChild)
+                }
+            }
+        }
+    }
+
     // MARK: - Delete
     
-    func deleteNonRootNode(key: T) {
+    func delete(key: T) {
         var queue: Queue<BinaryTreeNode> = .init(items: [self])
         
         var nodeToDelete: BinaryTreeNode<T>?
@@ -139,8 +161,6 @@ class BinaryTreeNode<T: Comparable> {
                 parent.leftChild = nil
             }
         }
-        
-        bfs()
     }
     
     // MARK: - Height

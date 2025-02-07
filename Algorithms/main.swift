@@ -9,4 +9,15 @@ import Foundation
 
 // MARK: - main
 
-TrieNode.executeOperations()
+//TrieNode.executeOperations()
+
+let tree = BinaryTreeNode(data: 0)
+tree.insert(data: 1)
+tree.insert(data: 2)
+tree.insert(data: 3)
+tree.insert(data: 4)
+tree.insert(data: 5)
+tree.insert(data: 6)
+
+tree.delete(key: 0)
+tree.bfs()
