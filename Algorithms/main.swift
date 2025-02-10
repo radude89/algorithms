@@ -9,15 +9,15 @@ import Foundation
 
 // MARK: - main
 
-//TrieNode.executeOperations()
+let tree = BinaryTreeNode(data: 26)
 
-let tree = BinaryTreeNode(data: 0)
-tree.insert(data: 1)
-tree.insert(data: 2)
-tree.insert(data: 3)
-tree.insert(data: 4)
-tree.insert(data: 5)
-tree.insert(data: 6)
-tree.insert(data: 7)
+let l1 = BinaryTreeNode(data: 10)
+l1.leftChild = BinaryTreeNode(data: 4)
+l1.rightChild = BinaryTreeNode(data: 6)
+tree.leftChild = l1
 
-print(tree.level(for: 5))
+let r1 = BinaryTreeNode(data: 3)
+r1.rightChild = BinaryTreeNode(data: 3)
+tree.rightChild = r1
+
+print(tree.isSumTree)

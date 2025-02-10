@@ -5,7 +5,7 @@
 //  Created by Radu Dan on 28.08.2024.
 //
 
-class BinaryTreeNode<T: Comparable> {
+class BinaryTreeNode<T: Comparable & Numeric> {
     var data: T
     var leftChild: BinaryTreeNode?
     var rightChild: BinaryTreeNode?
@@ -356,3 +356,28 @@ extension BinaryTreeNode {
 }
 
 // MARK: - Sum tree
+
+extension BinaryTreeNode {
+    var isSumTree: Bool {
+        calculateSum().isValid
+    }
+
+    private func calculateSum() -> (isValid: Bool, sum: T) {
+        if leftChild == nil && rightChild == nil {
+            return (true, data)
+        }
+
+        var leftSum: (isValid: Bool, sum: T) = (true, 0)
+        if let leftChild {
+            leftSum = leftChild.calculateSum()
+        }
+
+        var rightSum: (isValid: Bool, sum: T) = (true, 0)
+        if let rightChild {
+            rightSum = rightChild.calculateSum()
+        }
+
+        let isValid = leftSum.isValid && rightSum.isValid && (data == leftSum.sum + rightSum.sum)
+        return (isValid, leftSum.sum + rightSum.sum + data)
+    }
+}
