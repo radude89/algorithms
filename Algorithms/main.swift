@@ -18,6 +18,6 @@ tree.insert(data: 3)
 tree.insert(data: 4)
 tree.insert(data: 5)
 tree.insert(data: 6)
+tree.insert(data: 7)
 
-tree.delete(key: 0)
-tree.bfs()
+print(tree.level(for: 5))

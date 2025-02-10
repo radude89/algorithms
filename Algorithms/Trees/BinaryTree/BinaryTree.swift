@@ -104,22 +104,18 @@ class BinaryTreeNode<T: Comparable> {
 
     func insert(data: T) {
         var queue = [self]
+        let newNode = BinaryTreeNode(data: data)
         while !queue.isEmpty {
             let node = queue.removeFirst()
             if node.leftChild == nil {
-                node.leftChild = BinaryTreeNode(data: data)
-                node.leftChild = BinaryTreeNode(data: data)
+                node.leftChild = newNode
                 return
             } else if node.rightChild == nil {
-                node.rightChild = BinaryTreeNode(data: data)
+                node.rightChild = newNode
                 return
             } else {
-                if let leftChild {
-                    queue.append(leftChild)
-                }
-                if let rightChild {
-                    queue.append(rightChild)
-                }
+                queue.append(node.leftChild!)
+                queue.append(node.rightChild!)
             }
         }
     }
@@ -302,3 +298,61 @@ class BinaryTreeNode<T: Comparable> {
         return max(leftSum, rightSum)
     }
 }
+
+// MARK: - Max Depth / Height
+
+extension BinaryTreeNode {
+    var maxDepth: Int {
+        let left = 1 + (leftChild?.maxDepth ?? -1)
+        let right = 1 + (rightChild?.maxDepth ?? -1)
+        return max(left, right)
+    }
+}
+
+// MARK: - Level of nodeb given the key
+
+extension BinaryTreeNode {
+    func level(for key: T) -> Int {
+        var level = 0
+        if data == key {
+            return level
+        }
+
+        if let leftChild {
+            level += 1
+            let leftChildLevel = self.level(
+                for: key,
+                node: leftChild,
+                level: level
+            )
+            if leftChildLevel != -1 {
+                return leftChildLevel
+            }
+        } else if let rightChild {
+            level += 1
+            let rightChildLevel = self.level(
+                for: key,
+                node: rightChild,
+                level: level + 1
+            )
+            if rightChildLevel != -1 {
+                return rightChildLevel
+            }
+        }
+
+        return level
+    }
+
+    private func level(
+        for key: T,
+        node: BinaryTreeNode,
+        level: Int
+    ) -> Int {
+        if data == key {
+            return level
+        }
+        return -1
+    }
+}
+
+// MARK: - Sum tree
