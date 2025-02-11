@@ -381,3 +381,84 @@ extension BinaryTreeNode {
         return (isValid, leftSum.sum + rightSum.sum + data)
     }
 }
+
+// MARK: - Cousins
+
+extension BinaryTreeNode {
+    func isCousin(
+        with node: BinaryTreeNode<T>,
+        tree: BinaryTreeNode
+    ) -> Bool {
+        // 1. The nodes are different
+        guard self !== node else { return false }
+
+        let level = tree.level(of: self)
+        let nodeLevel = tree.level(of: node)
+
+        // 2. They are on the same level
+        guard level == nodeLevel else { return false }
+
+        // 3. Parents are not `nil`
+        guard let parent = tree.parent(of: self),
+              let nodeParent = tree.parent(of: node) else {
+            return false
+        }
+
+        // 4. Parents are different
+        return parent !== nodeParent
+    }
+
+    func level(of node: BinaryTreeNode<T>) -> Int {
+        level(of: node, currentLevel: 1)
+    }
+
+    private func level(
+        of node: BinaryTreeNode<T>,
+        currentLevel: Int
+    ) -> Int {
+        if self === node {
+            return currentLevel
+        }
+
+        if let leftChild {
+            let leftLevel = leftChild.level(
+                of: node,
+                currentLevel: currentLevel + 1
+            )
+            if leftLevel != -1 {
+                return leftLevel
+            }
+        }
+
+        if let rightChild {
+            let rightLevel = rightChild.level(
+                of: node,
+                currentLevel: currentLevel + 1
+            )
+            if rightLevel != -1 {
+                return rightLevel
+            }
+        }
+
+        return -1
+    }
+
+    private func parent(of node: BinaryTreeNode<T>) -> BinaryTreeNode<T>? {
+        if let leftChild, leftChild === node {
+            return self
+        }
+        if let rightChild, rightChild === node {
+            return self
+        }
+
+        if let parent = leftChild?.parent(of: node) {
+            return parent
+        }
+
+        if let parent = rightChild?.parent(of: node) {
+            return parent
+        }
+
+        return nil
+    }
+}
