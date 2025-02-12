@@ -9,20 +9,22 @@ import Foundation
 
 // MARK: - main
 
-let tree = BinaryTreeNode(data: 1)
+let tree = BinaryTreeNode(data: 7)
 
-let l1 = BinaryTreeNode(data: 2)
-let l2 = BinaryTreeNode(data: 4)
-let l3 = BinaryTreeNode(data: 5)
-l1.leftChild = l2
-l1.rightChild = l3
+let a = BinaryTreeNode(data: 6)
+let b = BinaryTreeNode(data: 5)
+let c = BinaryTreeNode(data: 4)
+let d = BinaryTreeNode(data: 3)
+let e = BinaryTreeNode(data: 2)
+let f = BinaryTreeNode(data: 1)
 
-tree.leftChild = l1
+a.rightChild = f
+a.leftChild = e
 
-let r1 = BinaryTreeNode(data: 3)
-let r2 = BinaryTreeNode(data: 6)
-r1.rightChild = r2
+b.rightChild = d
+b.leftChild = c
 
-tree.rightChild = r1
+tree.leftChild = a
+tree.rightChild = b
 
-print(l2.isCousin(with: r2, tree: tree))
+print(tree.isPerfect)

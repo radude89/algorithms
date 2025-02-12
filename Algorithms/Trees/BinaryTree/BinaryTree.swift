@@ -5,6 +5,8 @@
 //  Created by Radu Dan on 28.08.2024.
 //
 
+import Foundation
+
 class BinaryTreeNode<T: Comparable & Numeric> {
     var data: T
     var leftChild: BinaryTreeNode?
@@ -460,5 +462,36 @@ extension BinaryTreeNode {
         }
 
         return nil
+    }
+}
+
+// MARK: - Perfect binary tree
+
+extension BinaryTreeNode {
+    var isPerfect: Bool {
+        var queue = [self]
+        var numberOfNodes = 0
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+            numberOfNodes += 1
+            if (current.leftChild == nil && current.rightChild != nil) ||
+                (current.leftChild != nil && current.rightChild == nil) {
+                return false
+            }
+            if let left = current.leftChild {
+                queue.append(left)
+            }
+            if let right = current.rightChild {
+                queue.append(right)
+            }
+        }
+        let power = Int(pow(2, Double(heightT + 1)))
+        return power - 1 == numberOfNodes
+    }
+
+    private var heightT: Int {
+        let leftHeight = 1 + (leftChild?.heightT ?? -1)
+        let rightHeight = 1 + (rightChild?.heightT ?? -1)
+        return max(leftHeight, rightHeight)
     }
 }
