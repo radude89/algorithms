@@ -9,22 +9,14 @@ import Foundation
 
 // MARK: - main
 
-let tree = BinaryTreeNode(data: 7)
+let tree = BinaryTreeNode(data: 1)
 
-let a = BinaryTreeNode(data: 6)
-let b = BinaryTreeNode(data: 5)
+let a = BinaryTreeNode(data: 2)
+let b = BinaryTreeNode(data: 3)
 let c = BinaryTreeNode(data: 4)
-let d = BinaryTreeNode(data: 3)
-let e = BinaryTreeNode(data: 2)
-let f = BinaryTreeNode(data: 1)
-
-a.rightChild = f
-a.leftChild = e
-
-b.rightChild = d
-b.leftChild = c
 
 tree.leftChild = a
 tree.rightChild = b
+a.leftChild = c
 
-print(tree.isPerfect)
+print(tree.isComplete)

@@ -11,7 +11,7 @@ class BinaryTreeNode<T: Comparable & Numeric> {
     var data: T
     var leftChild: BinaryTreeNode?
     var rightChild: BinaryTreeNode?
-    
+
     init(
         data: T,
         leftChild: BinaryTreeNode? = nil,
@@ -21,23 +21,23 @@ class BinaryTreeNode<T: Comparable & Numeric> {
         self.leftChild = leftChild
         self.rightChild = rightChild
     }
-    
+
     // MARK: - DFS
-    
+
     func traversePreorder() {
         print(data)
         leftChild?.traversePreorder()
         rightChild?.traversePreorder()
     }
-    
+
     func traverseDepthOrderWithStack() {
         let stack = StackList<BinaryTreeNode<T>>()
         stack.push(self)
         while !stack.isEmpty {
             guard let current = stack.pop() else { return }
-            
+
             print(current.data)
-            
+
             if let right = current.rightChild {
                 stack.push(right)
             }
@@ -46,46 +46,46 @@ class BinaryTreeNode<T: Comparable & Numeric> {
             }
         }
     }
-    
+
     func traverseInorder() {
         leftChild?.traversePreorder()
         print(data)
         rightChild?.traversePreorder()
     }
-    
+
     func traversePostorder() {
         leftChild?.traversePreorder()
         rightChild?.traversePreorder()
         print(data)
     }
-    
+
     // MARK: - BFS
-    
+
     func bfs() {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
-        
+
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { return }
-            
+
             print("\(String(describing: current.data))")
-            
+
             if let left = current.leftChild {
                 queue.enqueue(left)
             }
-            
+
             if let right = current.rightChild {
                 queue.enqueue(right)
             }
         }
     }
-    
+
     // MARK: - Insert
-    
+
     func insert(node: BinaryTreeNode) {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
-        
+
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { return }
             if current.leftChild == nil {
@@ -94,7 +94,7 @@ class BinaryTreeNode<T: Comparable & Numeric> {
             } else {
                 queue.enqueue(current.leftChild!)
             }
-            
+
             if current.rightChild == nil {
                 current.rightChild = node
                 break
@@ -123,14 +123,14 @@ class BinaryTreeNode<T: Comparable & Numeric> {
     }
 
     // MARK: - Delete
-    
+
     func delete(key: T) {
         var queue: Queue<BinaryTreeNode> = .init(items: [self])
-        
+
         var nodeToDelete: BinaryTreeNode<T>?
         var lastNode: BinaryTreeNode<T>?
         var parentOfLastNode: BinaryTreeNode<T>?
-        
+
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { return }
             if current.data == key {
@@ -147,11 +147,11 @@ class BinaryTreeNode<T: Comparable & Numeric> {
                 queue.enqueue(right)
             }
         }
-        
+
         if let lastNode {
             nodeToDelete?.data = lastNode.data
         }
-        
+
         if let parent = parentOfLastNode {
             if parent.rightChild === lastNode {
                 parent.rightChild = nil
@@ -160,9 +160,9 @@ class BinaryTreeNode<T: Comparable & Numeric> {
             }
         }
     }
-    
+
     // MARK: - Height
-    
+
     var height: Int {
         if leftChild == nil && rightChild == nil {
             return 1
@@ -173,9 +173,9 @@ class BinaryTreeNode<T: Comparable & Numeric> {
 
         return 1 + max(leftHeight, rightHeight)
     }
-    
+
     // MARK: - Size
-    
+
     var size: Int {
         if leftChild == nil && rightChild == nil {
             return 1
@@ -184,15 +184,15 @@ class BinaryTreeNode<T: Comparable & Numeric> {
         let rightSize = rightChild?.size ?? 0
         return 1 + leftSize + rightSize
     }
-    
+
     // MARK: - Spiral traversal
-    
+
     func traverseInSpiralUsingStacks() {
         let stack1 = StackList<BinaryTreeNode>()
         let stack2 = StackList<BinaryTreeNode>()
-        
+
         stack1.push(self)
-        
+
         while !stack1.isEmpty || !stack2.isEmpty {
             while !stack1.isEmpty {
                 let current = stack1.pop()
@@ -204,7 +204,7 @@ class BinaryTreeNode<T: Comparable & Numeric> {
                     stack2.push(left)
                 }
             }
-            
+
             while !stack2.isEmpty {
                 let current = stack2.pop()
                 print(String(describing: current?.data))
@@ -217,9 +217,9 @@ class BinaryTreeNode<T: Comparable & Numeric> {
             }
         }
     }
-    
+
     // MARK: - Reverse level order traversal
-    
+
     func reverseLevelOrderTraversal() {
         let stack = StackList<BinaryTreeNode>()
         stack.push(self)
@@ -238,55 +238,55 @@ class BinaryTreeNode<T: Comparable & Numeric> {
             print(current.data)
         }
     }
-    
+
     // MARK: - Sum
-    
+
     var sum: Int {
         guard let value = data as? Int else { return -1 }
-        
+
         let leftSum = leftChild?.sum ?? 0
         let rightSum = rightChild?.sum ?? 0
-        
+
         return value + leftSum + rightSum
     }
-    
+
     // MARK: - Min value
-    
+
     var min: T {
         var minValue = data
         var queue = Queue(items: [self])
-        
+
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { continue }
-            
+
             if current.data < minValue {
                 minValue = data
             }
-            
+
             if let left = current.leftChild {
                 queue.enqueue(left)
             }
-            
+
             if let right = current.rightChild {
                 queue.enqueue(right)
             }
         }
-        
+
         return minValue
     }
-    
+
     // MARK: - Max path sum
-    
+
     func maxPathSum() -> T where T: Numeric {
         var queue = Queue<BinaryTreeNode>()
         queue.enqueue(self)
-        
+
         var leftSum = data
         var rightSum = data
-        
+
         while !queue.isEmpty {
             guard let current = queue.dequeue() else { continue }
-            
+
             if let left = current.leftChild {
                 leftSum = left.data + leftSum
                 queue.enqueue(left)
@@ -296,7 +296,7 @@ class BinaryTreeNode<T: Comparable & Numeric> {
                 queue.enqueue(right)
             }
         }
-        
+
         return max(leftSum, rightSum)
     }
 }
@@ -493,5 +493,46 @@ extension BinaryTreeNode {
         let leftHeight = 1 + (leftChild?.heightT ?? -1)
         let rightHeight = 1 + (rightChild?.heightT ?? -1)
         return max(leftHeight, rightHeight)
+    }
+}
+
+// MARK: - Complete binary tree
+
+extension BinaryTreeNode {
+    var isComplete: Bool {
+        var queue = [self]
+        var hasNonFullNode = false // flag to mark when we find first non-full node
+
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+
+            // Check left child
+            if let leftChild = current.leftChild {
+                if hasNonFullNode {
+                    // If we already found a non-full node, no more nodes should have children
+                    return false
+                }
+                queue.append(leftChild)
+            } else {
+                hasNonFullNode = true
+            }
+
+            // Check right child
+            if let rightChild = current.rightChild {
+                if hasNonFullNode {
+                    // If we already found a non-full node, no more nodes should have children
+                    return false
+                }
+                if current.leftChild == nil {
+                    // Can't have right child without left child
+                    return false
+                }
+                queue.append(rightChild)
+            } else {
+                hasNonFullNode = true
+            }
+        }
+
+        return true
     }
 }
