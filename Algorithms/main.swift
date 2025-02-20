@@ -7,16 +7,4 @@
 
 import Foundation
 
-// MARK: - main
-
-let tree = BinaryTreeNode(data: 1)
-
-let a = BinaryTreeNode(data: 2)
-let b = BinaryTreeNode(data: 3)
-let c = BinaryTreeNode(data: 4)
-
-tree.leftChild = a
-tree.rightChild = b
-a.leftChild = c
-
-print(tree.isComplete)
+Graph.executeOperations()

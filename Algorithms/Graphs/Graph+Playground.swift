@@ -13,17 +13,8 @@ extension Graph: Playground {
     }
 
     private static func executeGraphOperations() {
-        // https://media.geeksforgeeks.org/wp-content/uploads/20230727130331/Undirected_to_Adjacency_matrix.png
-        _ = Graph(
-            matrix: [
-                [0, 0], [0, 1], [0, 1],
-                [1, 1], [1, 0], [1, 1],
-                [2, 1], [2, 1], [2, 0],
-            ]
-        )
-
-         let matrix = [[2,3,1], [0], [0,4], [0], [2]]
-         let graph = GraphList(matrix: matrix)
-         graph.depthFirstTraversal() // Output: 0 2 4 3 1
+        let matrix = [[1,2], [0,2], [0,1,3,4], [2], [2]]
+        let graph = GraphList(matrix: matrix)
+        graph.dfs(from: 1)
     }
 }

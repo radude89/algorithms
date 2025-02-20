@@ -11,21 +11,22 @@ struct GraphList {
     var adjacencyLists: [LinkedList<Int>]
 
     init(matrix: [[Int]]) {
-        self.adjacencyLists = Array(
-            repeating: LinkedList<Int>(),
-            count: matrix.count
-        )
-        for (i, connections) in matrix.enumerated() {
-            // Use the connections in their original order
-            for vertex in connections.reversed() { // Reverse to maintain order in linked list
-                adjacencyLists[i].insertAtBeginning(data: vertex)
+        adjacencyLists = []
+        for row in matrix {
+            let list = LinkedList<Int>()
+            for element in row {
+                list.insertAtEnd(data: element)
             }
+            adjacencyLists.append(list)
         }
     }
+}
 
-    func breadthFirstTraversal(from startVertex: Int = 0) {
-        guard startVertex >= 0,
-              startVertex < adjacencyLists.count else {
+// MARK: - DFS
+
+extension GraphList {
+    func dfs(from vertex: Int = 0) {
+        guard vertex < adjacencyLists.count, vertex >= 0 else {
             return
         }
 
@@ -33,58 +34,41 @@ struct GraphList {
             repeating: false,
             count: adjacencyLists.count
         )
-
-        var queue = Queue<Int>()
-        queue.enqueue(startVertex)
-        visited[startVertex] = true
-
-        while !queue.isEmpty {
-            guard let currentVertex = queue.dequeue() else { return }
-
-            print(currentVertex)
-
-            var node = adjacencyLists[currentVertex].head
-            while let currentNode = node {
-                let data = currentNode.data
-                if !visited[data] {
-                    visited[data] = true
-                    queue.enqueue(data)
-                }
-
-                node = currentNode.next
-            }
-        }
+        visit(vertex, visited: &visited)
     }
 
-    func depthFirstTraversal(from startVertex: Int = 0) {
-        guard startVertex >= 0,
-              startVertex < adjacencyLists.count else {
-            return
-        }
-
-        var visited: [Bool] = Array(
-            repeating: false,
-            count: adjacencyLists.count
-        )
-        traverse(vertex: startVertex, visited: &visited)
+    private func visit(_ vertex: Int, visited: inout [Bool]) {
+        markAsVisited(vertex, visited: &visited)
+        traverseList(vertex, visited: &visited)
     }
 
-    private func traverse(
-        vertex: Int,
-        visited: inout [Bool]
-    ) {
+    private func markAsVisited(_ vertex: Int, visited: inout [Bool]) {
         visited[vertex] = true
         print(vertex)
+    }
 
-        var node = adjacencyLists[vertex].head
-        while let currentNode = node {
-            let data = currentNode.data
-            if !visited[data] {
-                traverse(vertex: data, visited: &visited)
-            }
-
-            node = currentNode.next
+    private func traverseList(_ vertex: Int, visited: inout [Bool]) {
+        var current = adjacencyLists[vertex].head
+        while let unwrappedCurrent = current {
+            markAsVisitedIfNeeded(unwrappedCurrent, visited: &visited)
+            current = unwrappedCurrent.next
         }
+    }
 
+    private func markAsVisitedIfNeeded(
+        _ listNode: LinkedList<Int>.Node,
+        visited: inout [Bool]
+    ) {
+        let vertex = listNode.data
+        if !visited[vertex] {
+            visit(vertex, visited: &visited)
+        }
+    }
+}
+
+// MARK: - BFS
+
+extension GraphList {
+    func bfs(from startVertex: Int = 0) {
     }
 }
