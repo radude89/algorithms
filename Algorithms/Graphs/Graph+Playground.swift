@@ -15,6 +15,6 @@ extension Graph: Playground {
     private static func executeGraphOperations() {
         let matrix = [[1,2], [0,2], [0,1,3,4], [2], [2]]
         let graph = GraphList(matrix: matrix)
-        graph.dfs(from: 1)
+        graph.bfs(from: 0)
     }
 }
