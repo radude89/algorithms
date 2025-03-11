@@ -70,8 +70,8 @@ final class SkipList {
     }
 
     func insert(key: Int) {
-        // First try to find the key - if it exists, just return
-        if let searchResult = search(key: key) {
+        // We can't insert an existing key
+        guard search(key: key) == nil else {
             return
         }
 
@@ -103,12 +103,12 @@ final class SkipList {
         }
 
         // Insert the new node at the bottom level
-        var prevNode: SkipListNode? = nil
+        var prevNode: SkipListNode?
         var currentLevel = 0
 
         // Stack is now full of nodes where we need to insert after
         // Keep building up new nodes with a coin flip to determine height
-        var coinFlipIsHeads = Bool.random()
+        var coinFlipIsHeads = flipCoin()
         while !stack.isEmpty && (currentLevel == 0 || coinFlipIsHeads) {
             let insertAfter = stack.removeLast()
 
@@ -129,11 +129,12 @@ final class SkipList {
 
             // Keep track of this node for the next iteration
             prevNode = node
-
+            // Increment level
             currentLevel += 1
+            // Flip coin again
+            coinFlipIsHeads = flipCoin()
 
             // If we need to add a new level
-            coinFlipIsHeads = Bool.random()
             if stack.isEmpty && coinFlipIsHeads {
                 increaseHeightIfNeeded(level: currentLevel)
 
@@ -141,6 +142,10 @@ final class SkipList {
                 stack.append(head)
             }
         }
+    }
+
+    private func flipCoin() -> Bool {
+        Bool.random()
     }
 
     private func increaseHeightIfNeeded(level: Int) {
@@ -168,6 +173,50 @@ final class SkipList {
         // Update head and tail
         head = newHead
         tail = newTail
+    }
+
+    func delete(key: Int) -> Bool {
+        // First find the node to delete
+        let nodeToDelete = search(key: key)
+
+        // If the node doesn't exist, return false
+        guard let firstNode = nodeToDelete else {
+            return false
+        }
+
+        // Start from the found node (which might be at any level)
+        // and work our way up to the top level where this key exists
+        var currentNode: SkipListNode? = firstNode
+
+        // Delete the node at each level
+        while let node = currentNode {
+            // Update the horizontal links
+            node.prev?.next = node.next
+            node.next?.prev = node.prev
+
+            // Move up to the next level
+            currentNode = node.above
+        }
+
+        // Consider decreasing height if the top level is now empty
+        decreaseHeightIfNeeded()
+
+        return true
+    }
+
+    private func decreaseHeightIfNeeded() {
+        // If the top level only contains sentinel nodes (head and tail), remove it
+        while height > 0, head.next === tail {
+            // Top level is empty, remove it
+            head = head.below!  // Safe unwrap as height > 0
+            tail = tail.below!  // Safe unwrap as height > 0
+
+            // Break vertical links to allow garbage collection
+            head.above = nil
+            tail.above = nil
+
+            height -= 1
+        }
     }
 
     func printList() -> String {
