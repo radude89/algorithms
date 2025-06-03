@@ -7,12 +7,10 @@
 
 import Foundation
 
-let sorted = CountSort.execute(array: [
-    2, 1, 1, 0, 2, 5, 4, 0, 2, 8, 7, 7, 9, 2, 0, 1, 9,
-])
-print(sorted)
-
-let radixSorted = RadixSort.execute(array: [
-    432, 8, 530, 90, 88, 231, 11, 45, 677, 199
-])
-print(radixSorted)
+let totalWeight = KnapsackAlgorithm.calculateMaxProfit(
+    objects: [1, 2, 3, 4, 5, 6, 7],
+    profits: [5, 10, 15, 7, 8, 9, 4],
+    weights: [1, 3, 5, 4, 1, 3, 2],
+    capacity: 15
+)
+print(totalWeight)
