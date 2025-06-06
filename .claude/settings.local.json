@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(mkdir:*)",
+      "Bash(swift run:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(/Users/rdan/Library/Developer/Xcode/DerivedData/Algorithms-egjxvfmvdktrrkfpaqughpuclopm/Build/Products/Debug/Algorithms)"
     ],
     "deny": []
   }
