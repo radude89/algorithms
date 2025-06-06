@@ -1,0 +1,127 @@
+# Algorithms Project - Cursor Rules
+
+## Project Overview
+This is a comprehensive algorithms and data structures project implemented in Swift, containing both implementations and theoretical documentation.
+
+## Project Structure
+
+```
+algorithms/
+├── Algorithms/                 # Main Swift implementations
+│   ├── main.swift             # Entry point
+│   ├── Playground.swift       # Testing playground
+│   ├── Sorts/                 # Sorting algorithms
+│   │   ├── BubbleSort.swift
+│   │   ├── SelectionSort.swift
+│   │   ├── MergeSort.swift
+│   │   ├── QuickSort.swift
+│   │   ├── CountSort.swift
+│   │   └── RadixSort.swift
+│   ├── Trees/                 # Tree data structures
+│   │   ├── BinaryTree/
+│   │   ├── BinarySearchTree/
+│   │   ├── AVLTree/
+│   │   ├── RedBlackTree/
+│   │   ├── BTree/
+│   │   ├── Trie/
+│   │   └── GenericTree/
+│   ├── Graphs/                # Graph implementations
+│   │   ├── Graph.swift
+│   │   ├── GraphList.swift
+│   │   └── Graph+Playground.swift
+│   ├── Lists/                 # Linked list implementations
+│   ├── Stack/                 # Stack implementations
+│   ├── Queue/                 # Queue implementations
+│   ├── Heap/                  # Heap implementations
+│   ├── Strings/               # String algorithms
+│   └── Greedy/                # Greedy algorithms
+├── Theory/                    # Theoretical documentation
+│   ├── images/                # Supporting images
+│   ├── trees.md              # Tree theory
+│   ├── queues.md             # Queue theory
+│   ├── stacks.md             # Stack theory
+│   └── linked_lists.md       # Linked list theory
+├── Algorithms.xcodeproj/      # Xcode project files
+├── README.md
+└── .gitignore
+```
+
+## Coding Conventions
+
+### Swift Style Guide
+- Use Swift naming conventions (camelCase for variables/functions, PascalCase for types)
+- Follow Swift best practices for protocols, extensions, and generics
+- Use meaningful variable and function names that describe the algorithm's purpose
+- Add comprehensive documentation comments using Swift's documentation syntax
+
+### File Organization
+- Each algorithm should be in its own Swift file
+- Group related algorithms in appropriate directories (e.g., sorting algorithms in `Sorts/`)
+- Use descriptive file names that match the algorithm name (e.g., `QuickSort.swift`)
+- Keep playground/testing code separate from main implementations
+
+### Code Structure
+- Include time and space complexity comments for each algorithm
+- Provide example usage in comments or playground files
+- Implement proper error handling where applicable
+- Use generic types where algorithms can work with multiple data types
+
+### Documentation
+- Maintain theoretical documentation in the `Theory/` directory
+- Use Markdown format for all documentation files
+- Include diagrams and images in the `Theory/images/` directory when helpful
+- Keep documentation in sync with implementations
+
+## Development Guidelines
+
+### When working on algorithms:
+1. Implement the core algorithm first
+2. Add comprehensive comments explaining the approach
+3. Include time/space complexity analysis
+4. Add test cases or examples
+5. Update relevant documentation if needed
+
+### When adding new data structures:
+1. Create appropriate directory structure if needed
+2. Implement basic operations (insert, delete, search, etc.)
+3. Add visualization or debugging helpers
+4. Document the data structure properties and use cases
+
+### Testing and Validation:
+- Use the `Playground.swift` file for quick testing
+- Add example usage in comments
+- Test edge cases and boundary conditions
+- Verify algorithm correctness with known test cases
+
+## File Types and Extensions
+
+### Swift Files (.swift)
+- Algorithm implementations
+- Data structure definitions
+- Testing and playground code
+- Extensions and utilities
+
+### Markdown Files (.md)
+- Theoretical explanations
+- Algorithm analysis
+- Usage documentation
+- Project documentation
+
+### Xcode Project Files
+- Project configuration and build settings
+- Maintained automatically by Xcode
+- Should not be manually edited unless necessary
+
+## Best Practices
+
+1. **Clarity over Cleverness**: Write code that is easy to understand and maintain
+2. **Educational Value**: Code should serve as learning material for algorithms and data structures
+3. **Consistency**: Follow established patterns within the project
+4. **Documentation**: Every non-trivial algorithm should have explanatory comments
+5. **Modularity**: Keep algorithms and data structures modular and reusable
+
+## Project Goals
+- Provide clean, educational implementations of common algorithms
+- Serve as a reference for algorithm study and interview preparation
+- Maintain both practical code and theoretical understanding
+- Support learning through well-documented, readable code 
