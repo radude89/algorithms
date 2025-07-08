@@ -6,7 +6,8 @@
       "Bash(mkdir:*)",
       "Bash(swift run:*)",
       "Bash(xcodebuild:*)",
-      "Bash(/Users/rdan/Library/Developer/Xcode/DerivedData/Algorithms-egjxvfmvdktrrkfpaqughpuclopm/Build/Products/Debug/Algorithms)"
+      "Bash(/Users/rdan/Library/Developer/Xcode/DerivedData/Algorithms-egjxvfmvdktrrkfpaqughpuclopm/Build/Products/Debug/Algorithms)",
+      "Bash(find:*)"
     ],
     "deny": []
   }
