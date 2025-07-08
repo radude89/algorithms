@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Development Commands
 - **Swift compilation**: `swiftc` for individual files
 - **Project build**: Use Xcode build system (⌘+B) or `swift build`
+- **Target Platform**: macOS 14.2+ command-line tool
 
 ## Architecture Overview
 
@@ -44,3 +45,20 @@ This is an educational algorithms and data structures repository implemented in 
 - **By Algorithm Type**: Sorting algorithms in Sorts/, tree structures in Trees/, etc.
 - **By Functionality**: Complex structures split into logical extensions (Insert, Delete, Archive, etc.)
 - **Theoretical Documentation**: Corresponding .md files in Theory/ directory for major concepts
+
+### Directory Structure Details
+- **Lists/**: LinkedList, DoublyLinkedList, CircularLinkedList, SkipList implementations
+- **Trees/**: AVL, B-Tree, Binary Search Tree, Red-Black Tree, Huffman Tree, Trie
+- **Sorts/**: QuickSort, MergeSort, BubbleSort, RadixSort, CountSort, SelectionSort
+- **Graphs/**: Graph algorithms and data structures
+- **Greedy/**: Greedy algorithms (Knapsack)
+- **Heap/**: Heap data structure
+- **Queue/**: Queue implementation
+- **Stack/**: Stack implementations
+- **Strings/**: String algorithms
+
+### Protocol-Oriented Architecture
+- **Core Protocol**: `Playground` protocol in Playground.swift defines `executeOperations()` method
+- **Implementation Pattern**: Each data structure implements Playground for consistent testing
+- **Extension Pattern**: Complex structures use Swift extensions for modular organization (e.g., `LinkedList+Insert.swift`, `LinkedList+Delete.swift`, `LinkedList+Playground.swift`)
+- **Generic Design**: Most data structures use Swift generics for type safety and reusability
