@@ -10,3 +10,5 @@ import Foundation
 print("Start")
 
 SlidingWindow.executeOperations()
+
+print("Finish")
