@@ -9,6 +9,6 @@ import Foundation
 
 print("Start")
 
-SlidingWindow.executeOperations()
+DynamicProgramming.executeOperations()
 
 print("Finish")
